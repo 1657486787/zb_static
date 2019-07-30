@@ -1,0 +1,380 @@
+<style type="text/css">
+    .container-fluid {
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .common-container {
+        color: #333;
+    }
+
+    .container-fluid .clearfix {
+        margin: 0px 0px;
+        box-shadow: 0px 0px 0px 0px #ccc inset;
+    }
+
+    .col-lg-1,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-xs-1,
+    .col-xs-10,
+    .col-xs-11,
+    .col-xs-12,
+    .col-xs-2,
+    .col-xs-3,
+    .col-xs-4,
+    .col-xs-5,
+    .col-xs-6,
+    .col-xs-7,
+    .col-xs-8,
+    .col-xs-9 {
+        position: relative;
+        min-height: 0px;
+        padding-right: 10px;
+        padding-left: 0px;
+    }
+
+    div[type='row'] {
+        padding-top: 20px;
+    }
+
+    .btn-default {
+        margin-top: 20px;
+    }
+
+    .table-responsive {
+        display: block;
+        height: 300px;
+    }
+
+    table input[type="text"] {
+        width: 50px;
+    }
+
+    div[cate="title"] label {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .base-info {
+        padding: 20px 50px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+</style>
+
+<link rel="stylesheet" href="${ctx}/assetsv1/css/prolayer.css">
+<link rel="stylesheet" href="${ctx}/assetsv1/css/problem/style.css" />
+<link rel="stylesheet" href="${ctx}/assetsv1/css/problem/problem.css" />
+<link rel="stylesheet" href="${ctx}/assetsv1/css/prolayer.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/lib/js/toastr/toastr.css" />
+<script src="${ctx}/lib/js/toastr/toastr.js"></script>
+<script type="text/javascript" src="${ctx}/assetsv1/js/problem/problem_detail.js"></script>
+<script src="${ctx}/assetsv1/js/datetime/moment.js"></script>
+<script src="${ctx}/assetsv1/js/datetime/daterangepicker.js"></script>
+<div class="common-container" style="background: #ffffff;">
+    <div class="common-content clearfix" style="background-color: #f1f5f8">
+        <div class="problem-content" style="overflow-y: auto; overflow-x: hidden;right:0;">
+            <div class="problem-con">
+                <div class="problem-con">
+                    <form id="seletinfo" class="form-horizontal bv-form">
+                        <div class="row" type="row" cate="title">
+                            <div class="col-sm-6">
+                                <h2 class="arrow-label panel-sm-tit">基本信息</h2>
+                            </div>
+                        </div>
+                        <div class="base-info">
+                            <div class="row" type="row">
+                                <div class="col-sm-6">
+                                    <label>报价单模板名称：</label>
+                                    <span name='name'></span>
+                                </div>
+                            </div>
+                            <div class="row" type="row">
+                                   
+                                <div class="col-sm-6">
+                                    <label>适用医院性质：</label>
+                                    <span name='hospital_nature'></span>
+                                </div>
+                            </div>
+                            
+							<div class="row" type="row">
+							    <div class="col-sm-6">
+                                    <label>启用状态：</label>
+                                    <span name="status"></span>
+                                </div>
+							</div>
+							<div class="row" type="row">
+							    <div class="col-sm-12">
+							        <label>备注：</label>
+							        <span name="remark"></span>
+							    </div>
+							</div>
+
+                        </div>
+
+
+                        <div class="row" type="row" cate="title" id="selectGoodsListDivTitle">
+                            <div class="col-sm-6">
+                                <h2 class="arrow-label panel-sm-tit">报价明细</h2>
+                            </div>
+                        </div>
+                        <div class="row" type="row">
+                            <div id="selectGoodsListDiv" class="row" type="row" style="display: none;">
+                                <div class="table-responsive" style="height:340px;">
+                                    <table class="table table-bordered tablePro">
+                                            <thead>
+                                            <th class="seq">序号</th>
+                                            <th class="no">商品编号</th>
+                                            <th class="name">商品名称</th>
+                                            <th class="product_name">类型</th>
+                                            <th class="price">建议价格（万元）</th>
+                                            <th class="combo_type">报价单价（万元）</th>
+                                            <th class="quantity">数量</th>
+                                            <th class="quantity">销售金额（万元）</th>
+                                            <th class="quantity">折扣（%）</th>
+                                            <th class="quantity">折后销售金额（万元）</th>
+                                            <th class="quantity">备注</th>
+                                            </thead>
+                                            <tbody id="tbody_pro">
+                                            </tbody>
+                                        </table>
+                                </div>
+                            </div>
+
+                            <!-- 统计信息 start -->
+                            <div>
+                                销售总金额(万元)： <span class="selected-table-title" id="goods_sum"></span>
+                            </div>
+                            <div>
+                                折扣(%)： <span class="selected-table-title" id="goods_discount"></span>,金额(万元)：<span class="selected-table-title" id="goods_discount_amt"></span>
+                            </div>
+                            <div>
+                                折后总金额(万元)：<span class="selected-table-title" id="goods_discount_sum"></span>
+                            </div>
+                            <!-- 统计信息 end -->
+
+                        </div>
+
+
+                        <div class="form-group" style="padding-top: 30px;padding-bottom: 30px;">
+                            <div class="saveBtn" style="height: 32px; text-align: left; margin: 0px 30px;">
+                                <input
+                                    style="padding: 6px; padding: 0px 20px; border: 0px; text-align: center; line-height: 35px; background: rgba(72, 160, 220, 1); color: white; border-radius: 2px;"
+                                    class="btn " onclick="window.parent.cloudOpenWindow(false);" type="button"
+                                    value="返回">
+                              
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var param=getUrlParams();
+    $(function () {
+        initForm(param);
+    })
+    
+    function initForm(param) {
+        console.log("参数：");
+        console.log(param);
+        $("span[name='name']").html(param.name?decodeURI(param.name):'');
+        $("span[name='hospital_nature']").html(param.hospital_nature?decodeURI(param.hospital_nature):'');
+        $("span[name='status']").html(param.status=='1'?'启用':'禁用');
+        $("span[name='remark']").html(param.remark?decodeURI(param.remark):'');
+
+        initStaticInfo(param);
+
+        //报价单商品表
+        initGoodsList(param.id);
+        
+    }
+
+
+
+    function initStaticInfo(){
+        var goods_sum = getNum(param.goods_sum);
+        var goods_discount = getNum(param.goods_discount);
+        var goods_discount_sum = getNum(param.goods_discount_sum);
+        var goods_discount_amt = diff(goods_sum , goods_discount_sum);// 折扣金额=销售金额（万元） -  折后销售金额（万元）
+        $("#goods_sum").text(goods_sum);
+        $("#goods_discount").text(goods_discount);
+        $("#goods_discount_amt").text(goods_discount_amt);
+        $("#goods_discount_sum").text(goods_discount_sum);
+    }
+
+    //初始化商品列表，根据模板id查询数据
+    function initGoodsList(offer_template_id){
+        if(offer_template_id){
+           
+           $.post(ctx+'/cloud/table/list/reader/list',{tableId:'1154920083559026688',offer_template_id:offer_template_id,rows:2000,page:1},function(result){
+               console.log("报价单商品表查询：");
+               if (!result) {
+                   return;
+               }
+               var selectRowArray=result.rows;
+               console.log(selectRowArray);
+               if (selectRowArray && selectRowArray.length > 0) {
+                   $(".purchase_pop_window").hide();
+                   $("#selectGoodsListDiv").show();
+
+                   // allArrayList = allArrayList.concat(selectRowArray);
+                   let selectRowArrays = selectRowArray
+                   console.log('选择产品' + JSON.stringify(selectRowArrays));
+                   no = $("#tbody_pro").children("tr:last-child").attr("index")+1;
+                   if(!no){
+                       no=0;
+                   }
+                   $("#tbody_pro").empty();
+                   for (var i = 0; i < selectRowArrays.length; i++) {
+                       var product = selectRowArrays[i];
+                       var id = selectRowArrays[i]['id'] ? selectRowArrays[i]['id'] : "";
+                       var goods_id = selectRowArrays[i]['goods_id'] ? selectRowArrays[i]['goods_id'] : "";
+                       var goods_no = selectRowArrays[i]['goods_no'] ? selectRowArrays[i]['goods_no'] : "";
+                       var goods_name = selectRowArrays[i]['goods_name'] ? selectRowArrays[i]['goods_name'] : "";
+                       var goods_type = selectRowArrays[i]['goods_type'] ? selectRowArrays[i]['goods_type'] : "";
+
+                       var goods_amt = getNum(selectRowArrays[i]['goods_amt']);
+                       var goods_offer_amt =  getNum(selectRowArrays[i]['goods_offer_amt']);
+                       var goods_num =  getNum(selectRowArrays[i]['goods_num']);
+                       var goods_sum =  getNum(selectRowArrays[i]['goods_sum']);
+                       var goods_discount =  getNum(selectRowArrays[i]['goods_discount']);
+                       var goods_discount_sum =  getNum(selectRowArrays[i]['goods_discount_sum']);
+
+                       var status = selectRowArrays[i]['status'] ? selectRowArrays[i]['status'] : "";
+                       var remark = selectRowArrays[i]['remark'] ? selectRowArrays[i]['remark'] : "";
+
+                       var price = goods_amt;
+                      
+                       $("#tbody_pro").append("<tr index='" + no + "' class>" +
+                           "<input name='goods_id' type='hidden' value='" +goods_id +
+                           "'/><input name='goods_no' type='hidden' value='" + goods_no +
+                           "'/><input name='goods_name' type='hidden' value='" + goods_name +
+                           "'/><input name='goods_type' type='hidden' value='" + goods_type+
+                           "'/><input name='price' type='hidden' value='" + price +
+                           "'/><input name='seq' type='hidden' value='" +  (i+1) +
+                           "'/><td name='seq'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (i+1) +
+                           "</div></td>"+
+                           "<td name='goods_no'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                               goods_no + "</div></td>" +
+                           "<td name='goods_name'><div title='"+goods_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                               goods_name + "</div></td>" +
+                           "<td name='goods_type'><div title='"+goods_type+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                               goods_type + "</div></td>" +
+                           "<td name='price'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                           price + "</div></td>" +
+
+                           "<td name='goods_offer_amt'> <input id='goods_offer_amt_"+goods_id+"' name='goods_offer_amt_"+goods_id+"' type='number' min='"+price+"' value='"+goods_offer_amt+"' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' disabled showName='报价单价' class='validateAmt' title='"+goods_offer_amt+"' /> </td>"+
+                           "<td name='goods_num'> <input id='goods_num_"+goods_id+"' name='goods_num_"+goods_id+"' type='number' min='1' value='"+goods_num+"' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' disabled showName='数量' class='validateAmt' title='"+goods_num+"' /> </td>"+
+                           "<td name='goods_sum'> <input id='goods_sum_"+goods_id+"' name='goods_sum_"+goods_id+"' type='number' min='0' value='"+goods_sum+"' style='width:100px' disabled showName='销售金额' class='validateAmt' title='"+goods_sum+"' /> </td>"+
+                           "<td name='goods_discount'> <input id='goods_discount_"+goods_id+"' name='goods_discount_"+goods_id+"' type='number' min='0' max='100' value='"+goods_discount+"' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' disabled showName='折扣' class='validateAmt' title='"+goods_discount+"' /> </td>"+
+                           "<td name='goods_discount_sum'> <input id='goods_discount_sum_"+goods_id+"' name='goods_discount_sum_"+goods_id+"' type='number' min='0' value='"+goods_discount_sum+"' style='width:100px' disabled  showName='折后销售金额' title='"+goods_discount_sum+"' /> </td>"+
+                           "<td name='remark'> <input id='remark_"+goods_id+"' name='remark_"+goods_id+"' value='"+remark+"' style='width:80px'disabled title='"+remark+"'/> </td>"+
+
+                           "</tr>"
+                       );
+                       no++;
+                   }
+                 
+               }
+               setbgColor("tablePro");
+               $(".tablePro tbody tr").click(function () {
+                   $(".tablePro tbody tr").css({
+                       "background-color": "#ffffff"
+                   });
+                   $(this).css({
+                       "background-color": "rgba(130,130,130,0.1)"
+                   });
+               });
+               
+           });
+       }
+    }
+
+
+
+    
+
+</script>
+
+<script type="text/javascript">
+
+    function getNum(num){
+        if(undefined == num || null == num || '' == num){
+            num = 0;
+        }
+        return num;
+    }
+
+    function sum(x,y){
+        var f1 = parseFloat(x);
+        var f2 = parseFloat(y);
+        var f = (f1 + f2).toFixed(4);
+        return f;
+    }
+
+    function diff(x,y){
+        var f1 = parseFloat(x);
+        var f2 = parseFloat(y);
+        var f = (f1 - f2).toFixed(4);
+        return f;
+    }
+
+    function multi(x,y){
+        var f1 = parseFloat(x);
+        var f2 = parseFloat(y);
+        var f = (f1 * f2).toFixed(4);
+        return f;
+    }
+
+    function div(x,y){
+        var f1 = parseFloat(x);
+        var f2 = parseFloat(y);
+        var f = (f1 / f2).toFixed(4);
+        return f;
+    }
+
+</script>

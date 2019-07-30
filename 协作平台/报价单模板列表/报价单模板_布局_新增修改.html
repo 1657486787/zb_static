@@ -1,0 +1,1588 @@
+<style>
+    .form-group-div {
+        height: 40px;
+    }
+    .formTable{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .formTable .tdTiltle{
+        width: 12%;
+        text-align: right;
+    }
+    .formTable .tdContent{
+        width: 50%;
+    }
+    .formTable td{
+        padding: 7px;
+    }
+    #description{
+        width: 100%;
+        padding: 5px;
+        outline: none;
+    }
+    .upload-attachment{
+        width:120px;
+        height:40px;
+        background:rgba(25,155,213,1);
+        border-radius:2px;
+        line-height: 40px;
+        color: #ffff;
+        cursor: pointer;
+        float: left;
+        text-align: center;
+    }
+    .glyphicon-download-alt{
+    }
+    .glyphicon-url{
+        float: left;
+        margin: 0px 10px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #ccc;
+        padding: 0px 12px;
+        text-align: center;
+    }
+    .btn-footer{
+        width:120px;
+        height:40px;
+        border-radius:2px;
+        display: inline-block;
+        border: 0px;
+        margin: 0px 10px;
+    }
+    .btn-save{
+        background:rgba(25,155,213,1);
+        color: #ffffff;
+    }
+    .btn-cancel{
+        background: #ffffff;
+        border:1px solid rgba(25,155,213,1);
+        color: rgba(29,153,212,1);
+    }
+    .glyphicon{
+        margin: 0px 5px;
+    }
+    .button-selectimg{
+        color: #ffffff;
+    }
+    .plan_visit_time{
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    input[id="avatval"]{padding:3px 6px;padding-left:10px;border:1px solid #E7EAEC;width:230px;height:25px;line-height:25px;border-left:3px solid #3FB7EB;background:#FAFAFB;border-radius:2px;}
+    input[type='file']{border:0px;display:none;}
+    .show-plan-visitor-table{
+        width: 90%;
+    }
+    .elementList{
+        height: 320px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 600px;
+        margin-left: 200px;
+        box-shadow: 3px 3px 3px #ccc;
+        border: 2px solid #ccccccbd;
+        position: relative;
+        border-bottom: 0px;
+    }
+    #tableList{
+        width: 100%;
+        height:280px;
+        border-collapse: collapse;
+        border: none;
+    }
+    .table-list-title{
+        height:40px;
+        width: 100%;
+        line-height: 40px;
+        background: #ccccccbd;
+    }
+    .table-list-title .select-title{
+        margin: 0px 10px;
+    }
+    #tableList th{
+        padding: 5px;
+        border: solid #ccc 1px;
+    }
+    #tableList td{
+        border: solid #ccc 1px;
+    }
+    #tableList thead{
+        background: #f0f1f1;
+    }
+    #tableList tr:hover{
+        width:344px;
+        background:rgba(243,158,16,.1);
+    }
+    .closeElementBtn{
+        width: 40px;
+        height: 30px;
+        position: absolute;
+        color: #ccc;
+        font-size: 16px;
+        right: 0px;
+        top:12px;
+        cursor: pointer;
+    }
+    .trStyle{
+        background:rgba(243,158,16,.3);
+    }
+    td.tdContent input.plan_visit_time:focus{
+        width: 100% !important;
+    }
+    #productListTreeDiv {
+        background-color: #fff;
+    }
+    .purchase_pop_window  {
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+
+    .purchase_pop_window .purchase_pop {
+        width: 750px;
+        height: 478px;
+        margin: 0 auto;
+        top: 190px;
+        left: 0px;
+        right: 0px;
+        bottom: 240px;
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #f1f5f8;
+    }
+
+    .purchase_pop .pop_p_title {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0px 10px;
+    }
+
+    .purchase_pop .pop_p_title .p_title {
+        float: left;
+    }
+
+    .purchase_pop .pop_p_title .close_pop {
+        float: right;
+        cursor: pointer;
+    }
+
+    .purchase_pop .pop_search_i {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 10px;
+        /* display: none; */
+    }
+
+    .purchase_pop .pop_purchase_tab {
+        padding: 10px;
+        /* height: 260px; */
+        height: 300px;
+        /* overflow-y: auto; */
+    }
+
+    .purchase_pop .pop_purchase_bottom {
+        padding: 10px;
+        width: 98%;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .purchase_pop .pop_search_input {
+        float: left;
+        border-top-left-radius: 3px !important;
+        border-bottom-left-radius: 3px !important;
+    }
+
+    .purchase_pop .pop_search_btn {
+        width: 50px;
+        height: 32px;
+        background: rgba(72, 160, 220, 1);
+        color: #ffffff;
+        float: left;
+        border: 0px;
+        line-height: 32px;
+    }
+    .sureBtn {
+        font-size: 14px;
+        /* width: 80px; */
+        height: 35px;
+        color: #fff;
+        background-color: rgba(72, 160, 220, 1);
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px rgba(72, 160, 220, 1);
+        padding: 5px 20px;
+        margin: 0px 10px;
+    }
+
+    .backBtn {
+        font-size: 14px;
+        /* width: 80px; */
+        height: 35px;
+        color: #444;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px rgba(68, 68, 68, 1);
+        /* margin-right: 20px; */
+        padding: 5px 20px;
+        margin: 0px 10px;
+    }
+    #scriptListQdPage .up_page_btn {
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        text-align: center;
+        border-radius: 5px;
+        float: left;
+        margin: 0px 5px;
+    }
+
+    #scriptListQdPage .page_btn {
+        color: #337ab7;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    #scriptListQdPage .page_show {
+        font-size: 16px;
+        float: left;
+        margin: 5px 10px;
+    }
+
+    #scriptListQdPage .down_page_btn {
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        text-align: center;
+        border-radius: 5px;
+        float: left;
+        margin: 0px 5px;
+    }
+    .table-responsive {
+        overflow-x: auto;
+        /* height:260px; */
+        height: 300px;
+    }
+    .table>thead>tr>th {
+        padding: 10px 0;
+        text-align: center;
+    }
+    input[type=checkbox]{
+        margin: 3px 12px 0;
+    }
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+    #tbody_pro td{
+        text-align: center;
+    }
+
+    .layui-layer-tips .layui-layer-content{
+        background: #fff;
+    }
+    div#selectGoodsListDiv {
+        padding: 30px 10%;
+    }
+    .selected-table-title{
+        height:30px;
+        line-height: 30px;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+</style>
+<script type="text/javascript" src="${ctx}/assets/js/layer/layer.js"></script>
+<!-- zTree样式 -->
+<link rel="stylesheet" href="${ctx}/assets/css/zTreeStyle/zTreeStyle.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/assets/css/tree/tree.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/assets/css/tree/icon.css"/>
+<link rel="stylesheet" href="${ctx}/assetsv1/css/prolayer.css">
+<!-- ztree -->
+<script type="text/javascript" src="${ctx}/assets/js/ztree/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="${ctx}/assets/js/ztree/jquery.ztree.excheck-3.5.js"></script>
+<script src="${ctx}/lib/zTree/js/jquery.ztree.all.min.js" type="text/javascript" charset="utf-8"></script>
+<div>
+    <div class="modal-body"
+        style="overflow-y: auto; overflow-x: hidden; position: absolute; left: 0px; right: 0px; bottom: 120px; top: 10px;">
+        <form id="field_content" method="post" class="form-horizontal bv-form" data-bv-message="This value is not valid"
+            data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+            data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+            data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" novalidate="novalidate">
+            <table class="formTable">
+                <tbody>
+                    <tr>
+                        <td class="tdTiltle">报价单模板名称:</td>
+                        <td class="tdContent">
+                        <input type="text" id="name" class="form-control" maxlength="100">
+                        <input type="hidden" id="id">
+                        </td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">适用医院性质:</td>
+                        <td class="tdContent">
+                        <input type="text" id="hospital_nature" name="hospital_nature" class="form-control" >
+                        </td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+
+                  <tr>
+                        <td class="tdTiltle">启用状态:</td>
+                        <td class="tdContent">
+                            <input type="radio"  name="status" value="1" checked="checked">启用</input>
+                            <input type="radio"  name="status" value="0">禁用</input>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdTiltle" style="vertical-align: sub;">备注:</td>
+                        <td class="tdContent" colspan="3">
+                            <textarea id="remark" rows="10"  maxlength="500"></textarea>
+                        </td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+                 
+                </tbody>
+            </table>
+
+
+
+             <div class="row" type="row">
+                <div class="col-sm-6">
+                    <h2 class="arrow-label panel-sm-tit table_button_setting_show_title">选择商品</h2>
+                    <div class="add_product_info">
+                       <span id ="product_switch" style="margin: 4px 0px;">添加商品</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="selectGoodsListDiv" class="row" type="row" style="display: none;">
+                <div class="selected-table-title">已选商品:</div>
+
+                <div class="selected-table-title">
+                    目标价格为 <input id="expect_sum" name="expect_sum" type="number" min="0" onkeyup="value=value.replace(/[^\d.]/g,'')" />万元，
+                    需要批量变更折扣  <span class="selected-table-title" id="goods_discount_show"></span>  折(%)
+                    <input type="button" value="应用" onclick="calculate()"/>
+                </div>
+
+                <div class="table-responsive" style="height:340px;">
+                    <table class="table table-bordered tablePro">
+                        <thead>
+                        <th class="seq">序号</th>
+                        <th class="no">商品编号</th>
+                        <th class="name">商品名称</th>
+                        <th class="product_name">类型</th>
+                        <th class="price">建议价格（万元）</th>
+                        <th class="combo_type">报价单价（万元）</th>
+                        <th class="quantity">数量</th>
+                        <th class="quantity">销售金额（万元）</th>
+                        <th class="quantity">折扣（%）</th>
+                        <th class="quantity">折后销售金额（万元）</th>
+                        <th class="quantity">备注</th>
+                        <th class="">操作</th>
+                        </thead>
+                        <tbody id="tbody_pro">
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 统计信息 start -->
+                <div>
+                    销售总金额(万元)： <span class="selected-table-title" id="goods_sum"></span>
+                </div>
+                <div>
+                    折扣(%)： <span class="selected-table-title" id="goods_discount"></span>,金额(万元)：<span class="selected-table-title" id="goods_discount_amt"></span>
+                </div>
+                <div>
+                    折后总金额(万元)：<span class="selected-table-title" id="goods_discount_sum"></span>
+                </div>
+                <!-- 统计信息 end -->
+
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer" style="position: absolute; bottom: 45px; right: 10px; width: 100%;text-align: center;">
+        <button type="button" id="open_form_btn_submit" class="btn-footer btn-save" onclick="javascript:submitForm();">
+            <span class="glyphicon glyphicon-floppy-disk"></span>保存
+        </button>
+        <button type="button" class="btn-footer btn-cancel" data-dismiss="modal"
+            onclick="javascript:window.parent.cloudOpenWindow(false);">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消
+        </button>
+    </div>
+</div>
+<div id="purchase_pop_window" class="purchase_pop_window" style="display: none;">
+    <div class="purchase_pop">
+        <div class="pop_p_title">
+            <span clas="p_title">选择物品信息</span>
+            <span class="close_pop">X</span>
+        </div>
+        <div class="pop_search_i">
+            <div class="input-wrap">
+                <input class="input search_val" type="text" id="searchName" value="" placeholder="搜索物品信息">
+                <span class="search-input" onclick="searchInputClick(this)" title="点击搜索"></span>
+            </div>
+        </div>
+        <div class="pop_purchase_tab">
+            <table id="p_goods_table"></table>
+
+            <div id="scriptListQdPage" class="scriptListQdPage"
+                 style="height: 35px !important;float: right;margin-right: 10px;">
+                <span class="up_page_btn page_btn">上一页</span><span class="page_show">1/1</span><span
+                    class="down_page_btn page_btn">下一页</span>
+            </div>
+        </div>
+        <div class="pop_purchase_bottom">
+            <button class="pop_cancel backBtn">取消</button>
+            <button class="pop_ok sureBtn">确定</button>
+        </div>
+    </div>
+</div>
+
+
+<script type="application/javascript">
+
+    var currentPage = 1; //当前页数
+    var totalPage = 1; //总的页数
+    var totalRecords = 1; //总的条数
+    var isSelectPage = 0; //是否选中了上一页下一页
+    var tableId="p_goods_table";
+    var keywordStr = ""; //搜素的名称
+    var searchArray = ['name', 'no', 'product_name'];
+    var selectRowArray = [];
+    var allArrayList = [];
+    
+    var param=getUrlParams();
+    console.info("urlParams:"+JSON.stringify(param));
+
+    $(function () {
+        laydate.render({
+            elem: '#validity_start_time',
+            type: "date",
+            trigger: 'click',
+            format: "yyyy-MM-dd"
+        });
+        laydate.render({
+            elem: '#validity_end_time',
+            type: "date",
+            trigger: 'click',
+            format: "yyyy-MM-dd"
+        });
+        if(param.id){
+            initForm(param);
+        }else{
+
+            //如果传入模板id,则初始化报价单商品表
+            if(param.offer_template_id){
+                initGoodsList(offer_template_id);
+            }
+
+            $("#hospital_nature").magicSuggest({
+                data: ctx + "/cloud/table/list/reader/wordbook/1127844046560038912",
+                allowFreeEntries: false,
+                autoSelect: true,
+                valueField: "value",
+                maxSelection: 1, //设置选择个数
+                placeholder: "请选择",
+                displayField: "value", //定义显示的字段
+                getParams: function () {
+                    return { rows: 1000}
+                },
+                maxSelectionRenderer: function () {
+                    return "";
+                },
+                selectionRenderer: function (data) {
+                    $("#hospital_nature").val(data.value);
+                    return data.value;
+                },
+                renderer: function (data) {
+                    return data.value;
+                }
+            });
+
+
+
+        }
+        $("#category").parent().parent().hide();
+        var goods_type=$("input[name='goods_type']:checked").val();
+        productInputSwitch(goods_type);
+        $("input[name='goods_type']").click(function(){
+            var goods_type=$(this).val();
+            productInputSwitch(goods_type);
+        });
+
+        $("#category").click(function(){
+            var html='<div class="tree-box" id="productListTreeDiv">\n' +
+                '        <ul id="productListTree" class="ztree"></ul>\n' +
+                '    </div>'
+            var index=layer.open({
+                skin: '#productListTreeDiv',
+                type: 4,
+                shadeClose:true,
+                content: [html, '#category'] //数组第二项即吸附元素选择器或者DOM
+            });
+            productListTree(1);
+        });
+    })
+
+    function productInputSwitch(goods_type) {
+        var html="";
+        if (parseInt(goods_type) == 1) {
+            html = "<input type=\"text\" class=\"form-control\" id=\"product_name\" readonly onclick=\"javascript:select_single_product(this);\">\n" +
+                " <input type=\"hidden\" class=\"form-control\" id=\"product_id\">";
+            $("#category").parent().parent().show();
+        } else {
+            html = "<a id=\"selectGoods\"  onclick=\"javascript:searchInputClick(this);\">\n" +
+                "  选择商品\n" +
+                " </a>";
+            $("#category").parent().parent().hide();
+        }
+        $("#product_switch").empty();
+        $("#product_switch").append(html);
+        if(param.product_name){
+            $("#product_name").val(decodeURI(param.product_name));
+            $("#product_id").val(decodeURI(param.product_id));
+        }
+    }
+
+    $(".close_pop").on("click", function () {
+        selectRowArray = []
+        $(".purchase_pop_window").hide();
+        console.log('selectRowArray:' + JSON.stringify(selectRowArray));
+    });
+
+    $(".pop_cancel").on("click", function () {
+        selectRowArray = []
+        $(".purchase_pop_window").hide();
+        console.log('selectRowArray:' + JSON.stringify(selectRowArray));
+    });
+
+    function select_single_product(){
+        var goods_type=$("input[name='goods_type']:checked").val();
+        if(parseInt(goods_type)==1){
+            var html='<div class="tree-box" id="productListTreeDiv">\n' +
+                '        <ul id="productListTree" class="ztree"></ul>\n' +
+                '    </div>'
+            var index=layer.open({
+                skin: '#productListTreeDiv',
+                type: 4,
+                shadeClose:true,
+                content: [html, '#product_name'] //数组第二项即吸附元素选择器或者DOM
+            });
+            productListTree();
+        }
+    }
+
+    $("input[name='goods_type']").on("click",function(){
+        if($(this).val()=='1'){
+            $("#selectGoodsListDiv").hide();
+            $("#tbody_pro").empty();
+        }
+    })
+
+    //商品组合套餐详情显示
+    function showGoodsDetail(goods_id){
+        console.info(goods_id);
+        $.post(ctx+'/cloud/table/list/reader/list',{tableId:'1150968131171127296',parent_id:goods_id,rows:2000,page:1},function(result){
+            
+            var html='<div class="pop_purchase_tab">\n' +
+            '                <table class="table table-bordered table_showGoodsDetail">\n' +
+            '                        <thead>\n' +
+            '                        <th class="seq">序号</th>\n' +
+            '                        <th class="no">商品编号</th>\n' +
+            '                        <th class="name">商品名称</th>\n' +
+            '                        <th class="product_name">产品名称</th>\n' +
+            '                        <th class="price">标准价格</th>\n' +
+            // '                        <th class="combo_type">商品选项类型</th>\n' +
+            '                        <th class="quantity">数量</th>\n' +
+            '                        </thead>\n' +
+            '                        <tbody id="tbody_showGoodsDetail">\n';
+            
+            var endHtml = ' </tbody></table></div>';
+            if (!result) {
+                return
+            }
+            var selectRowArray=result.rows;
+            console.log(selectRowArray);
+            if (selectRowArray.length > 0) {
+
+                let selectRowArrays = selectRowArray
+                console.log('选择产品' + JSON.stringify(selectRowArrays));
+                no = $(html).find("#tbody_showGoodsDetail").children("tr:last-child").attr("index")+1;
+                if(!no){
+                    no=0;
+                }
+                for (var i = 0; i < selectRowArrays.length; i++) {
+                    var product = selectRowArrays[i];
+                    var goods_id = selectRowArrays[i]['goods_id'] ? selectRowArrays[i]['goods_id'] : "";
+                    var goods_no = selectRowArrays[i]['no'] ? selectRowArrays[i]['no'] : "";
+                    var goods_name = selectRowArrays[i]['goods_name'] ? selectRowArrays[i]['goods_name'] : "";
+                    var product_name = selectRowArrays[i]['product_name'] ? selectRowArrays[i]['product_name'] : ""
+                    var price = selectRowArrays[i]['price'] ? selectRowArrays[i]['price'] : "";
+                    var quantity =selectRowArrays[i]['quantity'] ? selectRowArrays[i]['quantity'] : "";
+                    var combo_goods_type =selectRowArrays[i]['goods_type'] ? selectRowArrays[i]['goods_type'] : "";
+                    var quantityDiv ="<div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 80px'>" + quantity +"</div>";
+                    var combo_goods_typeDiv ="<div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 180px'>" + combo_goods_type +"</div>";
+                    var trHtml="<tr index='" + no + "' class>" +
+                        "<input name='goods_id' type='hidden' value='" +goods_id +
+                        "'/><input name='goods_no' type='hidden' value='" + product['no'] +
+                        "'/><input name='goods_name' type='hidden' value='" + product['goods_name'] +
+                        "'/><input name='product_name' type='hidden' value='" + product['product_name'] +
+                        "'/><input name='price' type='hidden' value='" + product['price'] +
+                        "'/><td name='seq'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (i+1) +"</div></td>"+
+                        "<td name='goods_no'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" + goods_no + "</div></td>" +
+                        "<td name='goods_name'><div title='"+goods_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" + goods_name + "</div></td>" +
+                        "<td name='product_name'><div title='"+product_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" + product_name + "</div></td>" +
+                        "<td name='price'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>"+ price + "</div></td>" +
+                        // "<td name='combo_goods_type'>"+combo_goods_typeDiv+"</td>"+
+                        "<td name='quantity'>"+quantityDiv+"</td>" +
+                        "</tr>"
+                    no++;
+                    html=html+trHtml;
+                }
+                html=html+endHtml;
+            }
+            var index=layer.open({
+                type: 1,
+                shadeClose:true,
+                content: html, //数组第二项即吸附元素选择器或者DOM
+                area:['700px','500px'],
+                success:function(){
+                    setbgColor("table_showGoodsDetail");
+                }
+            });
+        })
+
+    }
+
+
+    //---------------------------------------计算价格 start-------------------------------------
+    function fill_sum(goods_id){
+        var goods_offer_amt = getNum($("#goods_offer_amt_"+goods_id).val());
+        var goods_num = getNum($("#goods_num_"+goods_id).val());
+        var goods_sum = getNum($("#goods_sum_"+goods_id).val());
+        var goods_discount = getNum($("#goods_discount_"+goods_id).val());
+        var goods_sum = multi(goods_offer_amt,goods_num);
+
+        if(goods_discount > 100){
+            layer.alert("折扣不能大于100%");
+            return;
+        }
+
+        $("#goods_sum_"+goods_id).val(goods_sum);//销售金额（万元）
+
+        var goods_discount_sum = multi(goods_sum,goods_discount/100);
+        $("#goods_discount_sum_"+goods_id).val(goods_discount_sum);//折后销售金额（万元）
+
+        
+        fill_static_info();
+
+    }
+
+    /** 统计信息中，折扣的显示为 折后销售金额（万元）除以 销售金额（万元）  */
+    function fill_static_info(){
+        var goods_sum_temp = 0;//销售金额（万元）
+        var goods_discount_sum_temp = 0;//折后销售金额（万元）
+        $("#tbody_pro").find("tr").each(function(){
+            var goods_id = $(this).find("input[name=goods_id]").val();
+            var goods_sum = getNum($("#goods_sum_"+goods_id).val());
+            var goods_discount_sum = getNum($("#goods_discount_sum_"+goods_id).val());
+            goods_sum_temp = sum(goods_sum_temp,goods_sum);
+            goods_discount_sum_temp = sum(goods_discount_sum_temp,goods_discount_sum);
+        });
+
+        var static_discount = div(goods_discount_sum_temp,goods_sum_temp);
+        var static_discount_show = multi(static_discount , 100);
+
+        var goods_discount_amt = diff(goods_sum_temp , goods_discount_sum_temp);// 折扣金额=销售金额（万元） -  折后销售金额（万元）
+        $("#goods_sum").text(goods_sum_temp);
+        $("#goods_discount").text(static_discount_show);
+        $("#goods_discount_show").text(static_discount_show);
+        $("#goods_discount_amt").text(goods_discount_amt);
+        $("#goods_discount_sum").text(goods_discount_sum_temp);
+
+    }
+
+    function validateAmt(){
+        var flag = true;
+        $(".validateAmt").each(function(){
+            var value = $(this).val();
+            var showName = $(this).attr("showName");
+
+            if("折扣" == showName){
+
+                if(null == value || '' == value || value < 0){
+                    var seq = $(this).parent().parent().find("input[name=seq]").val();
+                    layer.alert("第["+seq+"]行："+showName + " 不能为空，需大于等于0");
+                    flag = false;
+                    return flag;
+                }
+
+                if(value > 100){
+                    layer.alert("第["+seq+"]行："+showName + "不能大于100%");
+                    flag = false;
+                    return flag;
+                }
+
+
+            }else{
+
+
+                if(null == value || '' == value || value <= 0){
+                    var seq = $(this).parent().parent().find("input[name=seq]").val();
+                    layer.alert("第["+seq+"]行："+showName + " 不能为空，需大于0");
+                    flag = false;
+                    return flag;
+                }
+
+
+            }
+            
+        });
+        return flag;
+    }
+
+
+
+    function calculate(){
+        var expect_sum = $("#expect_sum").val();//目标价格
+        if(null == expect_sum || '' == expect_sum || expect_sum <= 0){
+            layer.alert("目标价格需大于0");
+            return;
+        }
+
+        //金额/数量/折扣 校验非空
+        if(!validateAmt()){
+            return;
+        }
+
+        //1.遍历已选商品的销售金额（万元）2.求和 3.与目标价格 比较:如果目标价格比总和大， 给与“目标价格不能大于销售金额”提示
+        
+        var goods_sum_sum = 0;//销售金额（万元） 总和
+
+        var goodsList=[];
+        $("#tbody_pro").find("tr").each(function(){
+            var goods_id=$(this).find("input[name=goods_id]").val();
+            var goods_no=$(this).find("input[name=goods_no]").val();
+            var goods_name=$(this).find("input[name=goods_name]").val();
+            var goods_type=$(this).find("input[name=goods_type]").val();
+            var price=$(this).find("input[name=price]").val();
+
+            var goods_offer_amt = $("#goods_offer_amt_"+goods_id).val();
+            var goods_num = $("#goods_num_"+goods_id).val();
+            var goods_sum = $("#goods_sum_"+goods_id).val();
+            var goods_discount = $("#goods_discount_"+goods_id).val();
+            var goods_discount_sum = $("#goods_discount_sum_"+goods_id).val();
+            var remark = $("#remark_"+goods_id).val();
+
+            var goods={
+                goods_id:goods_id,
+                goods_no:goods_no,
+                goods_name:goods_name,
+                goods_type:goods_type,
+                price:price,
+                goods_offer_amt:goods_offer_amt,
+                goods_num:goods_num,
+                goods_sum:goods_sum,
+                goods_discount:goods_discount,
+                goods_discount_sum:goods_discount_sum,
+                remark:remark
+            };
+            goodsList.push(goods);
+            console.info(JSON.stringify(goodsList));
+
+            goods_sum_sum = sum(goods_sum_sum,goods_sum);
+
+        });
+
+        var diff_sum = diff(expect_sum,goods_sum_sum);
+        if(diff_sum > 0){
+            layer.alert("目标价格不能大于销售金额");
+            return;
+        }
+        var discount = div(expect_sum,goods_sum_sum);//折扣
+        var discount_show = multi(discount , 100);//显示的折扣
+        
+        //赋值
+        var goods_discount_sum_temp = 0;
+        var tr_length = $("#tbody_pro").find("tr").length;
+        $("#tbody_pro").find("tr").each(function(i,n){
+            console.info(i+"|"+n);
+            var goods_id = $(this).find("input[name=goods_id]").val();
+            var goods_sum = getNum($("#goods_sum_"+goods_id).val());
+            var goods_discount_sum = multi(goods_sum , discount);
+            if(goods_discount_sum > expect_sum){
+                goods_discount_sum = expect_sum;//如果算出折扣价格比目标价格还大，那么取最大值为目标价格
+            }
+
+            if(tr_length == (i+1)){//最后一行 金额 =  目标价格 - goods_discount_sum_temp累计和
+                goods_discount_sum = diff(expect_sum , goods_discount_sum_temp);
+            }
+
+            goods_discount_sum_temp = sum(goods_discount_sum_temp,goods_discount_sum);
+
+            $("#goods_discount_"+goods_id).val(discount_show);
+            $("#goods_discount_sum_"+goods_id).val(goods_discount_sum);
+  
+        });
+
+
+        fill_static_info();
+
+    }
+
+
+    //---------------------------------------计算价格 end---------------------------------------
+
+
+    //搜索
+    function searchInputClick(_this) {
+        var nameVal = $("#searchName").val();
+        var idsStr = "";
+        keywordStr = nameVal;
+        popTable(currentPage, keywordStr, searchArray); //
+    }
+
+    //点击确定
+    $(".pop_ok").on("click", function () {
+        console.log('length:' + selectRowArray.length);
+        if (selectRowArray.length == 0) {
+            $(".purchase_pop_window").hide();
+            $("#selectGoodsListDiv").hide();
+            return
+        }
+        //    allArrayList = [];
+        if (selectRowArray.length > 0) {
+            $(".purchase_pop_window").hide();
+            $("#selectGoodsListDiv").show();
+
+            // allArrayList = allArrayList.concat(selectRowArray);
+            let selectRowArrays = selectRowArray
+            console.log('选择产品' + JSON.stringify(selectRowArrays));
+            selectRowArray = [];
+            no = $("#tbody_pro").children("tr:last-child").attr("index")+1;
+            if(!no){
+                no=0;
+            }
+            $("#tbody_pro").empty();
+            for (var i = 0; i < selectRowArrays.length; i++) {
+                var product = selectRowArrays[i];
+                var goods_id = selectRowArrays[i]['id'] ? selectRowArrays[i]['id'] : "";
+                var goods_no = selectRowArrays[i]['no'] ? selectRowArrays[i]['no'] : "";
+                var goods_name = selectRowArrays[i]['name'] ? selectRowArrays[i]['name'] : "";
+                var goods_type = selectRowArrays[i]['type'] ? selectRowArrays[i]['type'] : "";
+                var showGoodsDetailButton = '组合套餐'==goods_type;//组合套餐显示详情
+                var goods_name_html = "";
+                if(showGoodsDetailButton){
+                    goods_name_html = "<a onclick='showGoodsDetail("+JSON.stringify(goods_id)+")'>"+goods_name+"</a>" ;
+                }else{
+                    goods_name_html = "<div title='"+goods_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" + goods_name + "</div></td>"
+                }
+
+
+                var product_name = selectRowArrays[i]['product_name'] ? selectRowArrays[i]['product_name'] : ""
+                var price = selectRowArrays[i]['price'] ? selectRowArrays[i]['price'] : "";
+
+                price = price/10000;//转成万元
+
+                var quantity = selectRowArrays[i]['quantity'] ? selectRowArrays[i]['quantity'] : "";
+                var combo_goods_type=selectRowArrays[i]['combo_goods_type'] ? selectRowArrays[i]['combo_goods_type'] : "";
+                var timestamp=new Date().getTime();
+                $("#tbody_pro").append("<tr index='" + no + "' class>" +
+                    "<input name='goods_id' type='hidden' value='" +goods_id +
+                    "'/><input name='goods_no' type='hidden' value='" + product['no'] +
+                    "'/><input name='goods_name' type='hidden' value='" + product['name'] +
+                    "'/><input name='goods_type' type='hidden' value='" + product['type'] +
+                    "'/><input name='price' type='hidden' value='" + price +
+                    "'/><input name='seq' type='hidden' value='" +  (i+1) +
+                    "'/><td name='seq'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (i+1) +
+                    "</div></td>"+
+                    "<td name='goods_no'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                        goods_no + "</div></td>" +
+                    "<td name='goods_name'>"+
+                       goods_name_html+
+                    "<td name='goods_type'><div title='"+goods_type+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                        goods_type + "</div></td>" +
+                    "<td name='price'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                    price + "</div></td>" +
+
+                    "<td name='goods_offer_amt'> <input id='goods_offer_amt_"+goods_id+"' name='goods_offer_amt_"+goods_id+"' type='number' min='"+price+"' value='"+price+"' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' showName='报价单价' class='validateAmt' /> </td>"+
+                    "<td name='goods_num'> <input id='goods_num_"+goods_id+"' name='goods_num_"+goods_id+"' type='number' min='1' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' showName='数量' class='validateAmt' /> </td>"+
+                    "<td name='goods_sum'> <input id='goods_sum_"+goods_id+"' name='goods_sum_"+goods_id+"' type='number' min='0' style='width:100px' disabled showName='销售金额' class='validateAmt' /> </td>"+
+                    "<td name='goods_discount'> <input id='goods_discount_"+goods_id+"' name='goods_discount_"+goods_id+"' type='number' min='0' max='100' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' showName='折扣' class='validateAmt'/> </td>"+
+                    "<td name='goods_discount_sum'> <input id='goods_discount_sum_"+goods_id+"' name='goods_discount_sum_"+goods_id+"' type='number' min='0' style='width:100px' disabled  showName='折后销售金额' /> </td>"+
+                    "<td name='remark'> <input id='remark_"+goods_id+"' name='remark_"+goods_id+"' style='width:80px'/> </td>"+
+
+                    "<td><a href='#' orderId='" + product['id'] + "' onclick='removePro(this);'><span class='glyphicon glyphicon-remove'></span></a></td></tr>"
+                );
+                no++;
+            }
+            
+        }
+        setbgColor("tablePro");
+        $(".tablePro tbody tr").click(function () {
+            $(".tablePro tbody tr").css({
+                "background-color": "#ffffff"
+            });
+            $(this).css({
+                "background-color": "rgba(130,130,130,0.1)"
+            });
+        });
+        console.log("查看确定之后的数据：" + JSON.stringify(allArrayList));
+    })
+
+    //删除物品
+    function removePro(this_) {
+        // var arr = [];
+        // var orderId = $(this_).attr("orderId");
+        // if (allArrayList.length > 0) {
+        //     for (var i = 0; i < allArrayList.length; i++) {
+        //         if (allArrayList[i].id == orderId) {
+        //             // allArrayList.splice(i, 1);
+        //             arr.push(i)
+        //         }
+        //     }
+        $(this_).parent().parent().remove();
+        // no--;
+        // resetNo();
+        // setApplyTypeSelectEnable();
+        // }
+        // var max = Math.max.apply(null, arr);
+        // allArrayList.splice(max, 1);
+        // console.log("查看删除之后的数据：" + JSON.stringify(allArrayList));
+    }
+
+    //重设序号
+    // function resetNo() {
+    //     var th = $("#tbody_pro > tr > th");
+    //     var j = 1;
+    //     for (var i = 0; i < th.length; i++) {
+    //         th[i].innerText = j++;
+    //     }
+    // }
+    //设置分页按钮
+    function pageSettingBtn(current, totalPage) {
+        if (current <= 1) {
+            $(".up_page_btn").addClass("disable_btn").removeClass("page_btn");
+        } else {
+            $(".up_page_btn").addClass("page_btn").removeClass("disable_btn");
+        }
+        if (totalPage <= 1 || current == totalPage) {
+            $(".down_page_btn").addClass("disable_btn").removeClass("page_btn");
+        } else {
+            $(".down_page_btn").addClass("page_btn").removeClass("disable_btn");
+        }
+    }
+    //点击上一页
+    $(".scriptListQdPage").on("click", ".up_page_btn", function () {
+        if (currentPage <= 1) {
+            //判断页数 置灰按钮
+            pageSettingBtn(currentPage, totalPage);
+            return;
+        }
+        currentPage--;
+        isSelectPage++;
+        $(".scriptListQdPage .page_show").html(currentPage + "/" + totalPage);
+        popTable(currentPage, keywordStr, searchArray);
+    });
+
+    //点击下一页
+    $(".scriptListQdPage").on("click", ".down_page_btn", function () {
+        console.log(66666);
+
+        if (currentPage >= totalPage) {
+            //判断页数 置灰按钮
+            pageSettingBtn(currentPage);
+            return;
+        }
+        currentPage++;
+        isSelectPage++;
+        $(".scriptListQdPage .page_show").html(currentPage + "/" + totalPage);
+        console.log(777777777777);
+
+        popTable(currentPage, keywordStr, searchArray);
+    });
+
+    function popTable(myCurrentPage, nameStr, searchArrStr) {
+        $(".purchase_pop_window").show();
+
+        var idsStr = "";
+        var mesg = ctx + "/cloud/table/list/reader/list"; ///cloud/table/list/reader/list
+
+        console.log('selectRowArray:' + JSON.stringify(selectRowArray));
+        console.log('allArrayList:' + JSON.stringify(allArrayList));
+
+        if (allArrayList.length > 0) {
+            var allIdStr = "";
+            for (var i = 0; i < allArrayList.length; i++) {
+                var ids = allArrayList[i].id;
+                allIdStr += ids + ",";
+            }
+            idsStr = allIdStr.substring(0, allIdStr.length - 1);
+        }
+
+        var data = {
+            tableId: "1156033428940918784", //1156033428940918784：报价单模板-商品列表选择， 1149237220373172224：商品选择
+            hospital_nature:$("#hospital_nature").magicSuggest().getValue().join(","),
+            rows: 20,
+           // keyword: nameStr,
+            queryStr: nameStr,//自定义拼装查询条件
+            page: myCurrentPage,
+            fieldKeys: JSON.stringify(searchArrStr).toString()
+        };
+        console.info("data:"+JSON.stringify(data));
+
+        $.ajax({
+            url: mesg,
+            type: "post",
+            data: data,
+            success: function (json) {
+                console.log('搜索：' + JSON.stringify(json));
+
+                if (json == "" || json == null) {
+                    return;
+                }
+                if (json) {
+                    currentPage = json.page;
+                    totalPage = json.total;
+                    totalRecords = json.records;
+                    if (!currentPage || currentPage <= 0) {
+                        currentPage = 1;
+                    }
+                    if (!totalPage || totalPage <= 0) {
+                        totalPage = 1;
+                    }
+                    $(".scriptListQdPage .page_show").text(currentPage + "/" + totalPage);
+                    pageSettingBtn(currentPage, totalPage);
+
+                    var rowList = json.rows;
+
+                    if (parseInt(isSelectPage) == 0) {
+                        isSelectPage++;
+                        purchaseTable = $("#" + tableId).jqGrid({
+                            data: rowList,
+                            datatype: "local",
+                            styleUI: 'Bootstrap',
+                            colNames: ['id', '商品名称','商品编号', '启用状态','适用医院性质', '所属产品大类','有效期','类型', '标准价格', '商品选项类型'],
+                            colModel: [{
+                                    name: 'id',
+                                    index: 'id',
+                                    hidden:true
+                                },
+                                {
+                                    name: 'name',
+                                    index: 'name',
+                                    width: 100
+                                },
+                                {
+                                    name: 'no',
+                                    index: 'no',
+                                    width: 100
+                                },
+                                {
+                                    name: 'status',
+                                    index: 'status',
+                                    width: 100,
+                                    formatter:function(dbValue,x,n){ return dbValue == '1' ? '启用' :  (dbValue == '0' ? '禁用' : '-'); }
+                                },
+                                {
+                                    name: 'hospital_nature',
+                                    index: 'hospital_nature',
+                                    width: 110
+                                },
+                                {
+                                    name: 'category',
+                                    index: 'category',
+                                    width: 110
+                                },
+                                {
+                                    name: 'validity_start_time',
+                                    index: 'validity_start_time',
+                                    width: 110
+                                },
+                                {
+                                    name: 'type',
+                                    index: 'type',
+                                    width: 110,
+                                    formatter:function(dbValue,x,n){ return dbValue == '1' ? '单品' :  (dbValue == '2' ? '组合套餐' : '-'); }
+                                },
+                                {
+                                    name: 'price',
+                                    index: 'price',
+                                    width: 110
+                                },
+                                {
+                                    name: 'combo_goods_type',
+                                    index: '',
+                                    width: 180 
+                                }
+                            ],
+                            height: "auto",
+                            viewrecords: true, //定义是否要显示总记录数
+                            rowNum: 20,
+                            loadonce: false,
+                            pgbuttons: true,
+                            pginput: true,
+                            scroll: false,
+                            forceFit: true,
+                            shrinkToFit: false,
+                            autowidth: true,
+                            viewrecords: true,
+                            sortorder: "desc",
+                            multiselect: true,
+                            onSelectAll: function (rowids, statue) { //点击头部 选中所有
+                                console.log(rowids);
+                                console.log(556677);
+
+                                console.log(statue);
+
+                                var allData = $("#" + tableId).jqGrid("getRowData");
+                                if (statue) {
+                                    selectRowArray = [];
+                                    for (var i = 0; i < allData.length; i++) {
+                                        selectRowArray.push(allData[i]);
+                                    }
+                                } else {
+                                    selectRowArray = [];
+                                }
+                                console.log("选中的数组:" + JSON.stringify(selectRowArray));
+                            },
+                            onSelectRow: function (rowid, status) {
+                                var rowId = jQuery("#" + tableId).jqGrid("getGridParam",
+                                    "selrow");
+                                var rowData = jQuery("#" + tableId).jqGrid('getRowData', rowid);
+                                var orgId = rowData.id;
+                                if (status) {
+                                    var isTest = false;
+                                    if (selectRowArray.length > 0) {
+                                        for (var j = 0; j < selectRowArray.length; j++) {
+                                            if (selectRowArray[j].id == orgId) {
+                                                isTest = true;
+                                            }
+                                        }
+                                        if (!isTest) {
+                                            selectRowArray.push(rowData);
+                                        }
+                                    } else {
+                                        selectRowArray.push(rowData);
+                                    }
+                                } else {
+                                    if (selectRowArray.length > 0) {
+                                        for (var i = 0; i < selectRowArray.length; i++) {
+                                            if (selectRowArray[i].id == orgId) {
+                                                selectRowArray.splice(i, 1);
+                                            }
+                                        }
+                                    }
+                                }
+                                // console.log("之前的数据："+JSON.stringify(allArrayList));
+                                // console.log("选中的数组:" + JSON.stringify(selectRowArray));
+                            },
+                            gridComplete: function () {
+                                var self = $("#" + tableId);
+                                $("tr", $(self)).hover(function () {
+                                    $(this).addClass('select-row-bg');
+                                }, function () {
+                                    $(this).removeClass('select-row-bg');
+                                });
+                                $("#" + tableId).closest(".ui-th-div").css({
+                                    "text-align": "center"
+                                });
+                                $("#" + tableId).closest(".ui-jqgrid-bdiv").css({
+                                    "overflow-x": "hidden"
+                                });
+                                $("#" + tableId).closest(".ui-jqgrid-bdiv").css({
+                                    'overflow-y': 'scroll',
+                                    'height': '250px'
+                                }); //ui-jqgrid-bdiv    210
+                                $("#" + tableId).closest(".frozen-bdiv").css({
+                                    'overflow-y': 'hidden',
+                                    'height': '250px'
+                                });
+                                var rowIds = jQuery("#" + tableId).jqGrid('getDataIDs');
+                                for (var i = 0; i < rowIds.length; i++) {
+                                    var tableRowId = "jqg_" + tableId + "_" + rowIds[i];
+                                    $("#" + tableId).find("input[id='jqg_" + tableId + "_" +
+                                        rowIds[i] + "']").attr(
+                                        "checked", false);
+                                }
+                            }
+                        }).trigger("reloadGrid").jqGrid('setFrozenColumns');
+                    } else {
+                        $("#" + tableId).jqGrid('clearGridData'); //清空表格
+                        $("#" + tableId).jqGrid('setGridParam', {
+                            data: rowList, //发送数据
+                            datatype: "local",
+                            styleUI: 'Bootstrap'
+                        }).trigger("reloadGrid"); //重新载入
+                    }
+
+                }
+            }
+        });
+
+    }
+
+    var sub_flag=0;
+
+    function submitForm() {
+        
+        if(sub_flag==1){
+            layer.alert("不要再点了，请刷新后重试！");
+            setTimeout(function () {
+                layer.closeAll();
+            }, 1000);
+            return;
+        }
+        sub_flag=1;
+        var sysparam = getSysParams();
+        var data = {
+            id: $("#id").val(),
+            name: $("#name").val(),
+            status: $("input[name='status']:checked").val(),
+            //hospital_nature:$("input[name='hospital_nature[]']").val(),
+            hospital_nature:$("#hospital_nature").magicSuggest().getValue().join(","),
+            remark: $("#remark").val(),
+            goods_sum: $("#goods_sum").text(),
+            goods_discount: $("#goods_discount").text(),
+            goods_discount_amt: $("#goods_discount_amt").text(),
+            goods_discount_sum: $("#goods_discount_sum").text()
+        };
+        if(!data.name ||data.name==''){
+            layer.alert("请填写报价单模板名称！");
+            sub_flag=0;
+            return;
+        }
+        if(!data.hospital_nature ||data.hospital_nature==''){
+            layer.alert("请选择适用医院性质！");
+            sub_flag=0;
+            return;
+        }
+
+        // 模板至少要有选择一个商品
+        var tr_length = $("#tbody_pro").find("tr").length;
+        if(tr_length <= 0){
+            layer.alert("请至少选择一个商品！");
+            sub_flag=0;
+            return;
+        }
+
+        //金额/数量/折扣 校验非空
+        if(!validateAmt()){
+            sub_flag=0;
+            return;
+        }
+
+        if(!data.goods_sum ||data.goods_sum==''){
+            layer.alert("销售总金额(万元)不能为空！");
+            sub_flag=0;
+            return;
+        }
+
+        if(!data.goods_discount ||data.goods_discount==''){
+            layer.alert("折扣(%)不能为空！");
+            sub_flag=0;
+            return;
+        }
+
+        if(!data.goods_discount_amt ||data.goods_discount_amt==''){
+            layer.alert("金额(万元)不能为空！");
+            sub_flag=0;
+            return;
+        }
+
+        if(!data.goods_discount_sum ||data.goods_discount_sum==''){
+            layer.alert("折后总金额(万元)不能为空！");
+            sub_flag=0;
+            return;
+        }
+
+        data.goodsList=getGoodsList();
+        console.log(data);
+
+        var loadMsg = layer.msg("正在加载...", {
+            icon: 16,
+            shade: [0.1, '#393D49'],
+            time: 60000
+        });
+        $.post(ctx + "/cloud/form/handler/saveSqlSave/1154677441566871552", data, function (json) {
+            layer.close(loadMsg);
+            if (json.result == "SUCCESS") {
+                try{
+                    parent.layer.alert("保存成功");
+                    setTimeout(function () {
+                        parent.layer.closeAll();
+                    }, 1000);
+                    if(param.flag==2){
+                        window.parent.parent.cloudOpenWindow(true);
+                    }else{
+                        window.parent.cloudOpenWindow(true);
+                    }
+
+                }catch(Exception){
+                }
+            } else {
+                layer.alert(json.resultMsg);
+                sub_flag=0;
+            }
+        });
+    }
+
+    //获取商品列表信息
+    function getGoodsList(){
+        var goodsList=[];
+        $("#tbody_pro").find("tr").each(function(){
+            var goods_id=$(this).find("input[name=goods_id]").val();
+            var goods_no=$(this).find("input[name=goods_no]").val();
+            var goods_name=$(this).find("input[name=goods_name]").val();
+            var goods_type=$(this).find("input[name=goods_type]").val();
+            var goods_amt=$(this).find("input[name=price]").val();
+
+            var goods_offer_amt = $("#goods_offer_amt_"+goods_id).val();
+            var goods_num = $("#goods_num_"+goods_id).val();
+            var goods_sum = $("#goods_sum_"+goods_id).val();
+            var goods_discount = $("#goods_discount_"+goods_id).val();
+            var goods_discount_sum = $("#goods_discount_sum_"+goods_id).val();
+            var remark = $("#remark_"+goods_id).val();
+
+            var goods={
+                goods_id:goods_id,
+                goods_no:goods_no,
+                goods_name:goods_name,
+                goods_type:goods_type,
+                goods_amt:goods_amt,
+                goods_offer_amt:goods_offer_amt,
+                goods_num:goods_num,
+                goods_sum:goods_sum,
+                goods_discount:goods_discount,
+                goods_discount_sum:goods_discount_sum,
+                remark:remark
+            };
+            goodsList.push(goods);
+            console.info(JSON.stringify(goodsList));
+        });
+        return JSON.stringify(goodsList);
+    }
+
+
+    function initForm(param) {
+        $("#id").val(param.id);
+        $("#name").val(param.name?decodeURI(param.name):'');
+       
+        $("input[name='status']").each(function(){
+            if(param.status==$(this).val()){
+                console.log("param.status:"+param.status);
+                $(this).attr("checked","checked")
+            }else{
+                console.log("this:"+$(this).val());
+            }
+        });
+        $("#remark").val(param.remark?decodeURI(param.remark):'');
+
+        initHospitalNature(param);
+        
+        initStaticInfo(param);
+
+        //报价单商品表
+        initGoodsList(param.id);
+        
+    }
+
+    function initHospitalNature(param){
+        $("#hospital_nature").magicSuggest({
+            data: ctx + "/cloud/table/list/reader/wordbook/1127844046560038912",
+            allowFreeEntries: false,
+            autoSelect: true,
+            value: param.hospital_nature ? decodeURI(param.hospital_nature).split(",") : [],
+            valueField: "value",
+            maxSelection: 1, //设置选择个数
+            placeholder: "请选择",
+            displayField: "value", //定义显示的字段
+            getParams: function () {
+                return { rows: 1000}
+            },
+            maxSelectionRenderer: function () {
+                return "";
+            },
+            selectionRenderer: function (data) {
+                $("#hospital_nature").val(data.value);
+                return data.value;
+            },
+            renderer: function (data) {
+                return data.value;
+            }
+        });
+    }
+
+    function initStaticInfo(){
+        var goods_sum = getNum(param.goods_sum);
+        var goods_discount = getNum(param.goods_discount);
+        var goods_discount_sum = getNum(param.goods_discount_sum);
+        var goods_discount_amt = diff(goods_sum , goods_discount_sum);// 折扣金额=销售金额（万元） -  折后销售金额（万元）
+        $("#goods_sum").text(goods_sum);
+        $("#goods_discount").text(goods_discount);
+        $("#goods_discount_amt").text(goods_discount_amt);
+        $("#goods_discount_sum").text(goods_discount_sum);
+    }
+
+    //初始化商品列表，根据模板id查询数据
+    function initGoodsList(offer_template_id){
+        if(offer_template_id){
+           
+           $.post(ctx+'/cloud/table/list/reader/list',{tableId:'1154920083559026688',offer_template_id:offer_template_id,rows:2000,page:1},function(result){
+               console.log("报价单商品表查询：");
+               if (!result) {
+                   return;
+               }
+               var selectRowArray=result.rows;
+               console.log(selectRowArray);
+               if (selectRowArray && selectRowArray.length > 0) {
+                   $(".purchase_pop_window").hide();
+                   $("#selectGoodsListDiv").show();
+
+                   // allArrayList = allArrayList.concat(selectRowArray);
+                   let selectRowArrays = selectRowArray
+                   console.log('选择产品' + JSON.stringify(selectRowArrays));
+                   no = $("#tbody_pro").children("tr:last-child").attr("index")+1;
+                   if(!no){
+                       no=0;
+                   }
+                   $("#tbody_pro").empty();
+                   for (var i = 0; i < selectRowArrays.length; i++) {
+                       var product = selectRowArrays[i];
+                       var id = selectRowArrays[i]['id'] ? selectRowArrays[i]['id'] : "";
+                       var goods_id = selectRowArrays[i]['goods_id'] ? selectRowArrays[i]['goods_id'] : "";
+                       var goods_no = selectRowArrays[i]['goods_no'] ? selectRowArrays[i]['goods_no'] : "";
+                       var goods_name = selectRowArrays[i]['goods_name'] ? selectRowArrays[i]['goods_name'] : "";
+                       var goods_type = selectRowArrays[i]['goods_type'] ? selectRowArrays[i]['goods_type'] : "";
+
+                        var showGoodsDetailButton = '组合套餐'==goods_type;//组合套餐显示详情
+                        var goods_name_html = "";
+                        if(showGoodsDetailButton){
+                            goods_name_html = "<a onclick='showGoodsDetail("+JSON.stringify(goods_id)+")'>"+goods_name+"</a>" ;
+                        }else{
+                            goods_name_html = "<div title='"+goods_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" + goods_name + "</div></td>"
+                        }
+
+                       var goods_amt = getNum(selectRowArrays[i]['goods_amt']);
+                       var goods_offer_amt =  getNum(selectRowArrays[i]['goods_offer_amt']);
+                       var goods_num =  getNum(selectRowArrays[i]['goods_num']);
+                       var goods_sum =  getNum(selectRowArrays[i]['goods_sum']);
+                       var goods_discount =  getNum(selectRowArrays[i]['goods_discount']);
+                       var goods_discount_sum =  getNum(selectRowArrays[i]['goods_discount_sum']);
+
+                       var status = selectRowArrays[i]['status'] ? selectRowArrays[i]['status'] : "";
+                       var remark = selectRowArrays[i]['remark'] ? selectRowArrays[i]['remark'] : "";
+
+                       var price = goods_amt;
+                      
+                       $("#tbody_pro").append("<tr index='" + no + "' class>" +
+                           "<input name='goods_id' type='hidden' value='" +goods_id +
+                           "'/><input name='goods_no' type='hidden' value='" + goods_no +
+                           "'/><input name='goods_name' type='hidden' value='" + goods_name +
+                           "'/><input name='goods_type' type='hidden' value='" + goods_type+
+                           "'/><input name='price' type='hidden' value='" + price +
+                           "'/><input name='seq' type='hidden' value='" +  (i+1) +
+                           "'/><td name='seq'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (i+1) +
+                           "</div></td>"+
+                           "<td name='goods_no'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                               goods_no + "</div></td>" +
+                           "<td name='goods_name'>"+
+                               goods_name_html +
+                                 "</td>" +
+                           "<td name='goods_type'><div title='"+goods_type+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                               goods_type + "</div></td>" +
+                           "<td name='price'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                           price + "</div></td>" +
+
+                           "<td name='goods_offer_amt'> <input id='goods_offer_amt_"+goods_id+"' name='goods_offer_amt_"+goods_id+"' type='number' min='"+price+"' value='"+goods_offer_amt+"' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' showName='报价单价' class='validateAmt' /> </td>"+
+                           "<td name='goods_num'> <input id='goods_num_"+goods_id+"' name='goods_num_"+goods_id+"' type='number' min='1' value='"+goods_num+"' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' showName='数量' class='validateAmt' /> </td>"+
+                           "<td name='goods_sum'> <input id='goods_sum_"+goods_id+"' name='goods_sum_"+goods_id+"' type='number' min='0' value='"+goods_sum+"' style='width:100px' disabled showName='销售金额' class='validateAmt' /> </td>"+
+                           "<td name='goods_discount'> <input id='goods_discount_"+goods_id+"' name='goods_discount_"+goods_id+"' type='number' min='0' max='100' value='"+goods_discount+"' onchange='fill_sum("+JSON.stringify(goods_id)+")' style='width:100px' showName='折扣' class='validateAmt'/> </td>"+
+                           "<td name='goods_discount_sum'> <input id='goods_discount_sum_"+goods_id+"' name='goods_discount_sum_"+goods_id+"' type='number' min='0' value='"+goods_discount_sum+"' style='width:100px' disabled  showName='折后销售金额' /> </td>"+
+                           "<td name='remark'> <input id='remark_"+goods_id+"' name='remark_"+goods_id+"' value='"+remark+"' style='width:80px'/> </td>"+
+
+                           "<td><a href='#' orderId='" + product['id'] + "' onclick='removePro(this);'><span class='glyphicon glyphicon-remove'></span></a></td></tr>"
+                       );
+                       no++;
+                   }
+                   
+               }
+               setbgColor("tablePro");
+               $(".tablePro tbody tr").click(function () {
+                   $(".tablePro tbody tr").css({
+                       "background-color": "#ffffff"
+                   });
+                   $(this).css({
+                       "background-color": "rgba(130,130,130,0.1)"
+                   });
+               });
+               console.log("查看确定之后的数据：" + JSON.stringify(allArrayList));
+           });
+       }
+    }
+
+</script>
+
+<script type="text/javascript">
+
+    function getNum(num){
+        if(undefined == num || null == num || '' == num){
+            num = 0;
+        }
+        return num;
+    }
+
+    function sum(x,y){
+        var f1 = parseFloat(x);
+        var f2 = parseFloat(y);
+        var f = (f1 + f2).toFixed(4);
+        return f;
+    }
+
+    function diff(x,y){
+        var f1 = parseFloat(x);
+        var f2 = parseFloat(y);
+        var f = (f1 - f2).toFixed(4);
+        return f;
+    }
+
+    function multi(x,y){
+        var f1 = parseFloat(x);
+        var f2 = parseFloat(y);
+        var f = (f1 * f2).toFixed(4);
+        return f;
+    }
+
+    function div(x,y){
+        var f1 = parseFloat(x);
+        var f2 = parseFloat(y);
+        var f = (f1 / f2).toFixed(4);
+        return f;
+    }
+
+</script>

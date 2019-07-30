@@ -1,0 +1,1604 @@
+<style type="text/css">
+    .container-fluid {
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .container-fluid .clearfix {
+        margin: 0px 0px;
+        box-shadow: 0px 0px 0px 0px #ccc inset;
+    }
+
+    .col-lg-1,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-xs-1,
+    .col-xs-10,
+    .col-xs-11,
+    .col-xs-12,
+    .col-xs-2,
+    .col-xs-3,
+    .col-xs-4,
+    .col-xs-5,
+    .col-xs-6,
+    .col-xs-7,
+    .col-xs-8,
+    .col-xs-9 {
+        position: relative;
+        min-height: 0px;
+        padding-right: 10px;
+        padding-left: 0px;
+    }
+
+    div[type='row'] {
+        padding-top: 20px;
+    }
+
+    .btn-default {
+        margin-top: 20px;
+    }
+
+    .table-responsive {
+        display: block;
+    }
+
+    table input[type="text"] {
+        width: 50px;
+    }
+
+    .tablePro thead {
+        background: #dee9f2;
+    }
+
+    .table-bordered>thead>tr>td,
+    .table-bordered>thead>tr>th {
+        border-bottom-width: 0px;
+        color: #333;
+        font-weight: 100;
+    }
+
+    .tablePro thead th {
+        border-bottom-width: 0px;
+    }
+
+    .table-bordered>tbody>tr>td {
+        border: 1px solid #e9eef1;
+    }
+
+    .table-bordered>tbody>tr>td,
+    .table-bordered>tbody>tr>th,
+    .table-bordered>tfoot>tr>td,
+    .table-bordered>tfoot>tr>th,
+    .table-bordered>thead>tr>td,
+    .table-bordered>thead>tr>th {
+        border: 1px solid #e9eef1;
+        color: #333;
+        font-weight: 100;
+    }
+
+    .add_product_info {
+        display: flex;
+        /* min-height: 60px; */
+        min-height: 35px;
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .add_product_info .addProduct {
+        margin: 15px;
+        padding-left: 35px;
+        color: #ffffff;
+        min-width: 115px;
+    }
+
+    .purchase_pop_window {
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+
+    .purchase_pop_window .purchase_pop {
+        width: 750px;
+        height: 435px;
+        margin: 0 auto;
+        top: 240px;
+        left: 0px;
+        right: 0px;
+        bottom: 240px;
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #f1f5f8;
+    }
+
+    .purchase_pop .pop_p_title {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0px 10px;
+    }
+
+    .purchase_pop .pop_p_title .p_title {
+        float: left;
+    }
+
+    .purchase_pop .pop_p_title .close_pop {
+        float: right;
+        cursor: pointer;
+    }
+
+    .purchase_pop .pop_search_i {
+        height: 35px;
+        line-height: 35px;
+        padding-left: 10px;
+        display: none;
+    }
+
+    .purchase_pop .pop_purchase_tab {
+        padding: 10px;
+        /* height: 260px; */
+        height: 300px;
+        /* overflow-y: auto; */
+    }
+
+    .purchase_pop .pop_purchase_bottom {
+        padding: 10px;
+        width: 98%;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .purchase_pop .pop_search_input {
+        float: left;
+        border-top-left-radius: 3px !important;
+        border-bottom-left-radius: 3px !important;
+    }
+
+    .purchase_pop .pop_search_btn {
+        width: 50px;
+        height: 32px;
+        background: rgba(72, 160, 220, 1);
+        color: #ffffff;
+        float: left;
+        border: 0px;
+        line-height: 32px;
+    }
+
+    .sureBtn {
+        font-size: 14px;
+        /* width: 80px; */
+        height: 35px;
+        color: #fff;
+        background-color: rgba(72, 160, 220, 1);
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px rgba(72, 160, 220, 1);
+        padding: 5px 20px;
+        margin: 0px 10px;
+    }
+
+    .backBtn {
+        font-size: 14px;
+        /* width: 80px; */
+        height: 35px;
+        color: #444;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px rgba(68, 68, 68, 1);
+        /* margin-right: 20px; */
+        padding: 5px 20px;
+        margin: 0px 10px;
+    }
+
+    .input-wrap .search_val {
+        border-radius: 20px !important;
+        -webkit-border-radius: 20px !important;
+        margin: 5px;
+    }
+
+    .input-wrap .input {
+        height: 30px;
+    }
+
+    .input-wrap .search-input {
+        top: 5px;
+    }
+
+    #p_purchase_table {
+        width: 98%;
+    }
+
+    .product_number_class {
+        width: 120px;
+    }
+
+    .product_name_class {
+        width: 90px;
+    }
+
+    .product_classify_class {
+        width: 89px;
+    }
+
+    .unit_class {
+        width: 78px;
+    }
+
+    .noClass {
+        width: 60px;
+    }
+
+    .vender_class {
+        width: 150px;
+    }
+
+    .spec_class {
+        width: 130px;
+    }
+
+    .table-responsive {
+        overflow-x: inherit;
+        /* height:260px; */
+        height: 300px;
+        overflow-y: auto;
+    }
+
+    .saveFormInfo {
+        padding: 6px;
+        padding: 0px 20px;
+        border: 0px;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 2px;
+        background: rgba(72, 160, 220, 1);
+        color: white;
+    }
+
+    .save_btn_default {
+        background: rgba(72, 160, 220, 1);
+        color: white;
+    }
+
+    .save_btn_no_default {
+        background: rgba(72, 160, 220, 1);
+        color: white;
+    }
+
+    .closeFormInfo {
+        padding: 6px;
+        padding: 0px 20px;
+        border: 0px;
+        text-align: center;
+        line-height: 35px;
+        background: rgb(156, 163, 169);
+        color: white;
+        border-radius: 2px;
+    }
+
+    #scriptListQdPage .page_btn {
+        color: #337ab7;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    #scriptListQdPage .up_page_btn {
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        text-align: center;
+        border-radius: 5px;
+        float: left;
+        margin: 0px 5px;
+    }
+
+    #scriptListQdPage .page_show {
+        font-size: 16px;
+        float: left;
+        margin: 5px 10px;
+    }
+
+    #scriptListQdPage .down_page_btn {
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        text-align: center;
+        border-radius: 5px;
+        float: left;
+        margin: 0px 5px;
+    }
+
+    .disable_btn {
+        background: #ddd;
+        color: #999;
+        cursor: default;
+    }
+
+    #priceName:focus {
+        width: 100%;
+    }
+</style>
+
+<!-- copy 新增商品 -->
+<style>
+    .form-group-div {
+        height: 40px;
+    }
+    .formTable{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .formTable .tdTiltle{
+        width: 12%;
+        text-align: right;
+    }
+    .formTable .tdContent{
+        width: 21%;
+    }
+    .formTable td{
+        padding: 7px;
+    }
+    #description{
+        width: 100%;
+        padding: 5px;
+        outline: none;
+    }
+    .upload-attachment{
+        width:120px;
+        height:40px;
+        background:rgba(25,155,213,1);
+        border-radius:2px;
+        line-height: 40px;
+        color: #ffff;
+        cursor: pointer;
+        float: left;
+        text-align: center;
+    }
+    .glyphicon-download-alt{
+    }
+    .glyphicon-url{
+        float: left;
+        margin: 0px 10px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #ccc;
+        padding: 0px 12px;
+        text-align: center;
+    }
+    .btn-footer{
+        width:120px;
+        height:40px;
+        border-radius:2px;
+        display: inline-block;
+        border: 0px;
+        margin: 0px 10px;
+    }
+    .btn-save{
+        background:rgba(25,155,213,1);
+        color: #ffffff;
+    }
+    .btn-cancel{
+        background: #ffffff;
+        border:1px solid rgba(25,155,213,1);
+        color: rgba(29,153,212,1);
+    }
+    .glyphicon{
+        margin: 0px 5px;
+    }
+    .button-selectimg{
+        color: #ffffff;
+    }
+    .plan_visit_time{
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    input[id="avatval"]{padding:3px 6px;padding-left:10px;border:1px solid #E7EAEC;width:230px;height:25px;line-height:25px;border-left:3px solid #3FB7EB;background:#FAFAFB;border-radius:2px;}
+    input[type='file']{border:0px;display:none;}
+    .show-plan-visitor-table{
+        width: 90%;
+    }
+    .elementList{
+        height: 320px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 600px;
+        margin-left: 200px;
+        box-shadow: 3px 3px 3px #ccc;
+        border: 2px solid #ccccccbd;
+        position: relative;
+        border-bottom: 0px;
+    }
+    #tableList{
+        width: 100%;
+        height:280px;
+        border-collapse: collapse;
+        border: none;
+    }
+    .table-list-title{
+        height:40px;
+        width: 100%;
+        line-height: 40px;
+        background: #ccccccbd;
+    }
+    .table-list-title .select-title{
+        margin: 0px 10px;
+    }
+    #tableList th{
+        padding: 5px;
+        border: solid #ccc 1px;
+    }
+    #tableList td{
+        border: solid #ccc 1px;
+    }
+    #tableList thead{
+        background: #f0f1f1;
+    }
+    #tableList tr:hover{
+        width:344px;
+        background:rgba(243,158,16,.1);
+    }
+    .closeElementBtn{
+        width: 40px;
+        height: 30px;
+        position: absolute;
+        color: #ccc;
+        font-size: 16px;
+        right: 0px;
+        top:12px;
+        cursor: pointer;
+    }
+    .trStyle{
+        background:rgba(243,158,16,.3);
+    }
+    td.tdContent input.plan_visit_time:focus{
+        width: 100% !important;
+    }
+    #productListTreeDiv {
+        background-color: #fff;
+    }
+    .purchase_pop_window {
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+
+    .purchase_pop_window .purchase_pop {
+        width: 750px;
+        height: 478px;
+        margin: 0 auto;
+        top: 190px;
+        left: 0px;
+        right: 0px;
+        bottom: 240px;
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #f1f5f8;
+    }
+
+    .purchase_pop .pop_p_title {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0px 10px;
+    }
+
+    .purchase_pop .pop_p_title .p_title {
+        float: left;
+    }
+
+    .purchase_pop .pop_p_title .close_pop {
+        float: right;
+        cursor: pointer;
+    }
+
+    .purchase_pop .pop_search_i {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 10px;
+        /* display: none; */
+    }
+
+    .purchase_pop .pop_purchase_tab {
+        padding: 10px;
+        /* height: 260px; */
+        height: 300px;
+        /* overflow-y: auto; */
+    }
+
+    .purchase_pop .pop_purchase_bottom {
+        padding: 10px;
+        width: 98%;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .purchase_pop .pop_search_input {
+        float: left;
+        border-top-left-radius: 3px !important;
+        border-bottom-left-radius: 3px !important;
+    }
+
+    .purchase_pop .pop_search_btn {
+        width: 50px;
+        height: 32px;
+        background: rgba(72, 160, 220, 1);
+        color: #ffffff;
+        float: left;
+        border: 0px;
+        line-height: 32px;
+    }
+    .sureBtn {
+        font-size: 14px;
+        /* width: 80px; */
+        height: 35px;
+        color: #fff;
+        background-color: rgba(72, 160, 220, 1);
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px rgba(72, 160, 220, 1);
+        padding: 5px 20px;
+        margin: 0px 10px;
+    }
+
+    .backBtn {
+        font-size: 14px;
+        /* width: 80px; */
+        height: 35px;
+        color: #444;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px rgba(68, 68, 68, 1);
+        /* margin-right: 20px; */
+        padding: 5px 20px;
+        margin: 0px 10px;
+    }
+    #scriptListQdPage .up_page_btn {
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        text-align: center;
+        border-radius: 5px;
+        float: left;
+        margin: 0px 5px;
+    }
+
+    #scriptListQdPage .page_btn {
+        color: #337ab7;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    #scriptListQdPage .page_show {
+        font-size: 16px;
+        float: left;
+        margin: 5px 10px;
+    }
+
+    #scriptListQdPage .down_page_btn {
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        text-align: center;
+        border-radius: 5px;
+        float: left;
+        margin: 0px 5px;
+    }
+    .table-responsive {
+        overflow-x: auto;
+        /* height:260px; */
+        height: 300px;
+    }
+    .table>thead>tr>th {
+        padding: 10px 0;
+        text-align: center;
+    }
+    input[type=checkbox]{
+        margin: 3px 12px 0;
+    }
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+    #tbody_pro td{
+        text-align: center;
+    }
+
+    .layui-layer-tips .layui-layer-content{
+        background: #fff;
+    }
+    div#selectGoodsListDiv {
+        padding: 30px 10%;
+    }
+    .selected-table-title{
+        height:30px;
+        line-height: 30px;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<link rel="stylesheet" href="${ctx}/assetsv1/css/prolayer.css">
+<link rel="stylesheet" href="${ctx}/assetsv1/css/problem/style.css" />
+<link rel="stylesheet" href="${ctx}/assetsv1/css/problem/problem.css" />
+<link rel="stylesheet" href="${ctx}/assetsv1/css/prolayer.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/lib/js/toastr/toastr.css" />
+<script src="${ctx}/lib/js/toastr/toastr.js"></script>
+<script type="text/javascript" src="${ctx}/assetsv1/js/problem/problem_detail.js"></script>
+<script src="${ctx}/assetsv1/js/datetime/moment.js"></script>
+<script src="${ctx}/assetsv1/js/datetime/daterangepicker.js"></script>
+<div class="common-container" style="background: #ffffff;">
+
+    <div class="common-content clearfix">
+
+        <div class="problem-content" style="overflow-y: auto; overflow-x: hidden;bottom:0px;">
+
+            <div class="problem-con">
+
+                <div class="problem-con">
+
+                    <form id="content_text" class="form-horizontal bv-form">
+                         <table class="formTable">
+                            <tbody>
+                                <tr>
+                                    <td class="tdTiltle">报价单模板名称:</td>
+                                    <td class="tdContent">
+                                    <input type="text" id="name" class="form-control" maxlength="100">
+                                    <input type="hidden" id="id">
+                                    </td>
+                                    <td class="tdTiltle"></td>
+                                    <td class="tdContent"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdTiltle">适用医院性质:</td>
+                                    <td class="tdContent">
+                                    <input type="text" id="hospital_nature" name="hospital_nature" class="form-control" >
+                                    </td>
+                                    <td class="tdTiltle"></td>
+                                    <td class="tdContent"></td>
+                                </tr>
+                               <tr>
+                                    <td class="tdTiltle">启用状态:</td>
+                                    <td class="tdContent">
+                                        <input type="radio"  name="status" value="1" checked="checked">启用</input>
+                                        <input type="radio"  name="status" value="0">禁用</input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdTiltle" style="vertical-align: sub;">备注:</td>
+                                    <td class="tdContent" colspan="3">
+                                        <textarea id="description" rows="10" maxlength="500"></textarea>
+                                    </td>
+                                    <td class="tdTiltle"></td>
+                                    <td class="tdContent"></td>
+                                </tr>
+                               
+                               
+                            </tbody>
+                        </table>
+
+
+
+                        <div class="row" type="row">
+                            <div class="col-sm-6">
+                                <!-- <label>物品信息：</label> -->
+                                <h2 class="arrow-label panel-sm-tit table_button_setting_show_title">选择商品</h2>
+                                <!-- <input type="text" name="product" class="form-control" /> -->
+                                <div class="add_product_info">
+                                    <!-- <span class="default-btn add-btn-supplier addProduct" onclick="addProduct2(this)">添加物品</span> -->
+                                    <div class="input-wrap">
+                                        <input class="input search_val" type="text" id="searchName" value=""
+                                            placeholder="搜索物品信息">
+                                        <span class="search-input" title="点击搜索"></span>
+                                    </div>
+                                    <span class="default-btn add-btn-supplier addProduct" onclick="addProduct2(this)" style="margin: 4px 0px;">添加商品</span>
+                                </div>
+                            </div>
+                            <!-- <input type="button" onclick="addProduct();" class="btn btn-default" value="添加物品"/> -->
+                        </div>
+                        <div class="row" type="row">
+                            <div class="table-responsive" style="height:380px;">
+                                <table class="table table-bordered tablePro">
+                                    <thead>
+                                        <tr>
+                                            <th>序号</th>
+                                            <th style="display:none;">物品编码</th>
+                                            <th>物品名称</th>
+                                            <th>物品分类</th>
+                                            <th>单位</th>
+                                            <th>规格/型号</th>
+                                            <th>厂家</th>
+                                            <th>最低起购量</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody_pro">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group" style="position: absolute;bottom: 0px;">
+                            <div class="saveBtn" style="height: 32px; text-align: left; margin: 0px 30px;">
+                                <input
+                                    style="padding: 6px; padding: 0px 20px; border: 0px; text-align: center; line-height: 35px; background: rgba(72, 160, 220, 1); color: white; border-radius: 2px;"
+                                    class="btn btn-palegreen saveFormInfo" onclick="saveFormInfo()" type="button"
+                                    value="保存">
+                                &nbsp;&nbsp;
+                                <input
+                                    style="padding: 6px; padding: 0px 20px; border: 0px; text-align: center; line-height: 35px; background: rgb(156, 163, 169); color: white; border-radius: 2px;"
+                                    class="btn closeFormInfo" onclick="window.parent.cloudOpenWindow(false);"
+                                    type="button" value="关闭">
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="purchase_pop_window">
+    <div class="purchase_pop">
+        <div class="pop_p_title">
+            <span clas="p_title">选择物品信息</span>
+            <span class="close_pop">X</span>
+        </div>
+        <div class="pop_search_i">
+            <!-- <div class="input-wrap">
+                <input class="input search_val" type="text" id="searchName" value="">
+                <span class="search-input" onclick="searchInputClick(this)"></span>
+            </div> -->
+            <!-- <input class="input pop_search_input  search_val" type="text" />
+            <input type="button" class="pop_search_btn" value="搜素" onclick="searchInputClick(this)" /> -->
+        </div>
+        <div class="pop_purchase_tab">
+            <table id="p_purchase_table"></table>
+            <div id="scriptListQdPage" class="scriptListQdPage"
+                style="height: 35px !important;float: right;margin-right: 10px;">
+                <span class="up_page_btn page_btn">上一页</span><span class="page_show">1/1</span><span
+                    class="down_page_btn page_btn">下一页</span>
+            </div>
+            <!--<div class="pop_purchase_bottom">
+                <button class="pop_cancel backBtn">取消</button>
+                <button class="pop_ok sureBtn">确定</button>
+            </div>-->
+        </div>
+        <div class="pop_purchase_bottom">
+            <button class="pop_ok sureBtn">确定</button>
+            <button class="pop_cancel backBtn">取消</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var selectRowArray = [];
+    var allArrayList = [];
+    var clickCount = 0;
+    var closetimer = null; //延时函数寄存
+
+    var currentPage = 1; //当前页数
+    var totalPage = 1; //总的页数
+    var totalRecords = 1; //总的条数
+    var isSelectPage = 0; //是否选中了上一页下一页
+
+    var searchArray = ['name', 'classify', 'unit', 'vender', 'product_number']; //搜索的字段
+    var keywordStr = ""; //搜素的名称
+
+    var isSelectApplyType = 0;
+
+
+    init();
+
+
+    //初始化
+    function init(){
+        //适用医院性质
+        $("#hospital_nature").magicSuggest({
+                data: ctx + "/cloud/table/list/reader/wordbook/1127844046560038912",
+                allowFreeEntries: false,
+                autoSelect: true,
+                valueField: "value",
+                maxSelection: 99999, //设置选择个数
+                placeholder: "请选择",
+                displayField: "value", //定义显示的字段
+                getParams: function () {
+                    return { rows: 1000}
+                },
+                maxSelectionRenderer: function () {
+                    return "";
+                },
+                selectionRenderer: function (data) {
+                    $("#hospital_nature").val(data.value);
+                    return data.value;
+                },
+                renderer: function (data) {
+                    return data.value;
+                }
+            });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //定价类型
+    var typeSelect = $("#content_text [name=type]").magicSuggest({
+        data: ctx + "/cloud/table/list/reader/wordbook/1054218640146042880",
+        allowFreeEntries: false,
+        autoSelect: true,
+        valueField: "id",
+        maxSelection: 1, //设置选择个数
+        placeholder: "请选择",
+        maxSelectionRenderer: function () {
+            return "";
+        },
+        selectionRenderer: function (data) {
+            return data.value;
+        },
+        renderer: function (data) {
+            return data.value;
+        }
+    });
+    var types = []; //选中的定价类型
+    $(typeSelect).on('selectionchange', function (e, this_, records) {
+        types = records;
+    });
+
+    //监听input的变化，改变allArrayList值
+    function keyup(_this) {
+        // let vals=$(_this).parent().previousSibling()
+        var vals = $(_this).parent().prev().attr('title');
+        var val = $(_this).val();
+        console.log(val);
+        // console.log(vals);
+        console.log(vals);
+        console.log(6546565665);
+        for (var i = 0; i < allArrayList.length; i++) {
+            if (allArrayList[i]['vender'] == vals) {
+                allArrayList[i]['count'] = val
+            }
+        }
+        console.log('allArrayList:' + JSON.stringify(allArrayList));
+
+    }
+    //供应商
+    var sellerSelect = $("#content_text [name=seller]").magicSuggest({
+        data: ctx + "/cloud/table/list/reader/wordbook/1054248440122314752",
+        allowFreeEntries: false,
+        autoSelect: true,
+        valueField: "org_id",
+        maxSelection: 1, //设置选择个数
+        placeholder: "请选择",
+        maxSelectionRenderer: function () {
+            return "";
+        },
+        selectionRenderer: function (data) {
+            return data.org_name;
+        },
+        renderer: function (data) {
+            return data.org_name;
+        }
+    });
+    var sellers = []; //选中的定价类型
+    $(sellerSelect).on('selectionchange', function (e, this_, records) {
+        sellers = records;
+    });
+
+
+    //物品信息
+    var productSelect = $("#content_text [name=product]").magicSuggest({
+        data: ctx + "/cloud/table/list/reader/wordbook/1054238239356882944",
+        allowFreeEntries: false,
+        autoSelect: true,
+        valueField: "id",
+        maxSelection: 10, //设置选择个数
+        placeholder: "请选择",
+        maxSelectionRenderer: function () {
+            return "";
+        },
+        selectionRenderer: function (data) {
+            return data.name;
+        },
+        renderer: function (data) {
+            return data.name;
+        }
+    });
+    var products = []; //选中的物品  8
+    $(productSelect).on('selectionchange', function (e, this_, records) {
+        products = records;
+    });
+
+    //请求之前设置参数
+    $(productSelect).on('beforeload', function (e, this_) {
+        var inputs = $("#tbody_pro > tr > input[name='id']");
+        var ids = [];
+        for (var i = 0; i < inputs.length; i++) {
+            ids.push(inputs[i].value);
+        }
+        productSelect.setDataUrlParams({
+            ids: ids.join(",")
+        });
+    });
+
+    //添加物品
+    var no = 1; //序号
+    function addProduct() {
+        if (products.length > 0) {
+            // console.log("查看数据："+allArrayList);
+            allArrayList = products;
+            for (var i = 0; i < products.length; i++) {
+                var product = products[i];
+                var count = product['count'] ? product['count'] : "";
+                var pkid = product['pk_id'] ? product['pk_id'] : "" //表主键
+                var alias = product['alias'] ? '别名：' + product['alias'] : "" //表主键
+                $("#tbody_pro").append("<tr><input name='pk_id' type='hidden' value='" + pkid +
+                    "'/><input name='id' type='hidden' value='" + product['id'] + "'/><th>" + no +
+                    "</th><td style='display:none;' name='product_number'>" +
+                    product['product_number'] + "</td><td name='name' title='" + alias + "'>" + product['name'] +
+                    "</td><td name='classify'>" + product[
+                        'classify'] + "</td><td name='unit'>" + product['unit'] + "</td><td name='spec'>" + product[
+                        'spec'] +
+                    "</td><td name='vender'>" + product['vender'] +
+                    "</td><td name='count'><input onkeyup='keyup(this)' value='" + count +
+                    "' type='text'></input></td><td><a href='#' onclick='removePro(this);'><span class='glyphicon glyphicon-remove'></span></a></td></tr>"
+                );
+                no++;
+            }
+        }
+        productSelect.clear();
+        //setApplyTypeSelectEnable();
+        setbgColor("tablePro");
+        $(".tablePro tbody tr").click(function () {
+            $(".tablePro tbody tr").css({
+                "background-color": "#ffffff"
+            });
+            $(this).css({
+                "background-color": "rgba(130,130,130,0.1)"
+            });
+        });
+    }
+
+    function setbgColor(tableClass) {
+        var tr = $("." + tableClass).find("tbody tr");
+        for (var i = 0; i < tr.length; i++) { // 从第二行开始遍历，i初始为1，递增6
+            if (i % 2 == 0) {
+                ;
+                $(tr[i]).addClass("select-row-bg");
+            } else {
+                $(tr[i]).removeClass("select-row-bg");
+            }
+        }
+    }
+
+    //设置申购类型下拉是否可用			
+    function setApplyTypeSelectEnable() {
+        var tr = $("#tbody_pro > tr");
+        if (tr.length > 0) {
+            //applyTypeSelect.disable();  //申购类型
+            $($(".ms-sel-item")[0]).children().remove(); //去掉小叉叉
+        } else {
+            //applyTypeSelect.enable();
+        }
+    }
+
+    //删除物品
+    function removePro(this_) {
+        var orderId = $(this_).attr("orderId");
+        if (params.id) {
+            allArrayList = products;
+        } else {
+            // allArrayList = selectRowArray;
+        }
+
+        if (allArrayList.length > 0) {
+            for (var i = 0; i < allArrayList.length; i++) {
+                if (allArrayList[i].id == orderId) {
+                    allArrayList.splice(i, 1);
+                }
+            }
+            $(this_).parent().parent().remove();
+            no--;
+            resetNo();
+            setApplyTypeSelectEnable();
+        }
+    }
+
+    //重设序号
+    function resetNo() {
+        var th = $("#tbody_pro > tr > th");
+        var j = 1;
+        for (var i = 0; i < th.length; i++) {
+            th[i].innerText = j++;
+        }
+    }
+
+    //日期处理
+    // var agreement_start_lay;
+    // var agreement_end_lay;
+    // $("input[db_type='date']").each(function () {
+    //     var lay = laydate.render({
+    //         elem: this,
+    //         min: 0
+    //     });
+    //     if ($(this).attr('key_id') == 'agreement_start_time') {
+    //         agreement_start_lay = lay;
+    //     } else if ($(this).attr('key_id') == 'agreement_end_time') {
+    //         agreement_end_lay = lay;
+    //         agreement_end_lay.config.btns = ["clear", "confirm"]; //取消现在按钮
+    //     }
+    // });
+    // agreement_start_lay.config.done = function (value, date, endDate) {
+    //     date.month = date.month - 1;
+    //     agreement_end_lay.config.min = date;
+    //     if ($("input[name='agreement_end_time'").val() < $("input[name='agreement_start_time'").val()) {
+    //         $("input[name='agreement_end_time'").val(value);
+    //     }
+    // };
+
+    function saveFormInfo() {
+        submitForm();
+    }
+
+    //点击搜索
+    $('.search-input').click(function () {
+        var nameVal = $("#searchName").val();
+        var idsStr = "";
+        // isSelectPage++;
+        keywordStr = nameVal;
+        popTable(currentPage, keywordStr, searchArray);
+    })
+
+
+    //点击新增商品
+    function addProduct2(_this) {
+        //var url = ctx + "/new/menu/form.jsp?formId=1118388941595086848";
+        //openWindow(url);
+
+        var nameVal = $("#searchName").val();
+        var idsStr = "";
+        // isSelectPage++;
+        keywordStr = nameVal;
+        popTable(currentPage, keywordStr, searchArray);
+
+    }
+
+    $(".close_pop").on("click", function () {
+        $(".purchase_pop_window").hide();
+    });
+    $(".pop_cancel").on("click", function () {
+        $(".purchase_pop_window").hide();
+    });
+
+    //点击确定
+    $(".pop_ok").on("click", function () {
+        //selectRowArray pop_ok
+        $(".purchase_pop_window").hide();
+        if (selectRowArray.length > 0) {
+            $("#tbody_pro").html("");
+            if (params.id) { //如果是修改
+                for (var j = 0; j < selectRowArray.length; j++) {
+                    allArrayList.push(selectRowArray[j]);
+                }
+            } else {
+                allArrayList = allArrayList.concat(selectRowArray);
+            }
+            selectRowArray = []
+            console.log(6655555555555555);
+            console.log(allArrayList);
+            
+            no = 1;
+            for (var i = 0; i < allArrayList.length; i++) {
+                var product = allArrayList[i];
+                var count = product['count'] ? product['count'] : "";
+                var pkid = product['pk_id'] ? product['pk_id'] : "" //表主键
+                var alias = product['alias'] ? '别名：' + product['alias'] : "" //表主键
+                $("#tbody_pro").append("<tr><input name='pk_id' type='hidden' value='" + pkid +
+                    "'/><input name='id' type='hidden' value='" + product['id'] +
+                    "'/><th class='noClass'>" +
+                    no +
+                    "</th><td class='product_number_class' name='product_number' style='display:none;' title='" +
+                    product['product_number'] +
+                    "'><div style='width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" +
+                    product['product_number'] +
+                    "</div></td><td class='product_name_class' name='name' title='" + alias +
+                    "'><div style='width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" +
+                    product['name'] + "</div></td>" +
+                    "<td name='classify' class='product_classify_class' title='" + product['classify'] +
+                    "'><div style='width:89px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" +
+                    product['classify'] +
+                    "</div></td><td class='unit_class' name='unit'><div style='width:78px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" +
+                    product['unit'] + "</div></td>" +
+                    "<td class='spec_class' name='spec'>" + product['spec'] +
+                    "</td><td class='vender_class' name='vender' title='" + product['vender'] +
+                    "'><div style='width:150px;width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" +
+                    product['vender'] +
+                    "</div></td><td name='count'><input class='input' onkeyup='keyup(this)' value='" +
+                    count +
+                    "' type='text' style='height:25px;'></input></td><td><a href='#' orderId='" + product[
+                        'id'] +
+                    "' onclick='removePro(this);'><span class='glyphicon glyphicon-remove'></span></a></td></tr>"
+                );
+                no++;
+            }
+        }
+        // productSelect.clear();
+        setApplyTypeSelectEnable();
+        setbgColor("tablePro");
+        $(".tablePro tbody tr").click(function () {
+            $(".tablePro tbody tr").css({
+                "background-color": "#ffffff"
+            });
+            $(this).css({
+                "background-color": "rgba(130,130,130,0.1)"
+            });
+        });
+    })
+
+    //点击上一页
+    $(".scriptListQdPage").on("click", ".up_page_btn", function () {
+        if (currentPage <= 1) {
+            //判断页数 置灰按钮
+            pageSettingBtn(currentPage, totalPage);
+            return;
+        }
+        currentPage--;
+        isSelectPage++;
+        $(".scriptListQdPage .page_show").html(currentPage + "/" + totalPage);
+        popTable(currentPage, keywordStr, searchArray);
+    });
+
+    //点击下一页
+    $(".scriptListQdPage").on("click", ".down_page_btn", function () {
+        if (currentPage >= totalPage) {
+            //判断页数 置灰按钮
+            pageSettingBtn(currentPage);
+            return;
+        }
+        currentPage++;
+        isSelectPage++;
+        $(".scriptListQdPage .page_show").html(currentPage + "/" + totalPage);
+        popTable(currentPage, keywordStr, searchArray);
+    });
+
+    //设置分页按钮
+    function pageSettingBtn(current, totalPage) {
+        if (current <= 1) {
+            $(".up_page_btn").addClass("disable_btn").removeClass("page_btn");
+        } else {
+            $(".up_page_btn").addClass("page_btn").removeClass("disable_btn");
+        }
+        if (totalPage <= 1 || current == totalPage) {
+            $(".down_page_btn").addClass("disable_btn").removeClass("page_btn");
+        } else {
+            $(".down_page_btn").addClass("page_btn").removeClass("disable_btn");
+        }
+    }
+
+    function popTable(myCurrentPage, nameStr, searchArrStr) {
+        $(".purchase_pop_window").show();
+        var tableId = "p_purchase_table";
+        var idsStr = "";
+        var mesg = ctx + "/cloud/table/list/reader/list"
+
+        if (allArrayList.length > 0) {
+            var allIdStr = "";
+            for (var i = 0; i < allArrayList.length; i++) {
+                var ids = allArrayList[i].id;
+                allIdStr += ids + ",";
+            }
+            idsStr = allIdStr.substring(0, allIdStr.length - 1);
+        }
+
+        var data = {
+            tableId: "1154300675572633600",//商品列表 id
+            // id: params.id,
+            // ids: idsStr,
+            rows: 20,
+            keyword: nameStr,
+            fieldKeys: JSON.stringify(searchArrStr).toString(),
+            page: myCurrentPage
+        };
+        $.ajax({
+            url: mesg,
+            type: "post",
+            data: data,
+            success: function (json) {
+                if (json) {
+                    currentPage = json.page;
+                    totalPage = json.total;
+                    totalRecords = json.records;
+                    if (currentPage <= 0) {
+                        currentPage = 1;
+                    }
+                    if (totalPage <= 0) {
+                        totalPage = 1;
+                    }
+                    $(".scriptListQdPage .page_show").text(currentPage + "/" + totalPage);
+                    pageSettingBtn(currentPage, totalPage);
+                    var rowList = json.rows;
+                    if (parseInt(isSelectPage) == 0) {
+                        isSelectPage++;
+                        $('.pop_purchase_tab').resize(function () {
+                            $('#' + tableId).setGridWidth($('.pop_purchase_tab').width() * 1);
+                        });
+                        $("#" + tableId).jqGrid({
+                            data: rowList,
+                            datatype: "local",
+                            styleUI: 'Bootstrap',
+                            colNames: ['商品名称', '商品编号', '类型', '建议价格', '厂商', '物品编码', 'id'],
+                            colModel: [{
+                                    name: 'name',
+                                    index: 'name',
+                                    width: 160,
+                                    formatter: function (v, n, x) {
+                                        console.log("x", x);
+                                        var name = x.name;
+                                        var alias = x.alias ? '别名：' + x.alias : '';
+                                        var tdDiv =
+                                            "<div title='" + alias +
+                                            "' style='height:30px;line-height: 30px;text-algin:center;'>" +
+                                            name + "</div>";
+                                        return tdDiv;
+                                    }
+                                },
+                                {
+                                    name: 'classify',
+                                    index: 'classify'
+                                },
+                                {
+                                    name: 'unit',
+                                    index: 'unit',
+                                    width: 80
+                                },
+                                {
+                                    name: 'spec',
+                                    index: 'spec',
+                                    width: 110
+                                },
+                                {
+                                    name: 'vender',
+                                    index: 'vender',
+                                    width: 190
+                                },
+                                {
+                                    name: 'product_number',
+                                    index: 'product_number',
+                                    hidden: true
+                                },
+                                {
+                                    name: 'id',
+                                    index: 'id',
+                                    hidden: true
+                                }
+                            ],
+                            height: "auto",
+                            viewrecords: true, //定义是否要显示总记录数
+                            rowNum: 1000,
+                            pgbuttons: true,
+                            pginput: true,
+                            scroll: false,
+                            forceFit: true,
+                            shrinkToFit: true,
+                            autowidth: true,
+                            viewrecords: true,
+                            sortorder: "desc",
+                            multiselect: true,
+                            jsonReader: {
+                                root: "rows",
+                                total: "total",
+                                page: "page",
+                                records: "records",
+                                repeatitems: false
+                            },
+                            onSelectAll: function (rowids, statue) { //点击头部 选中所有
+                                var allData = $("#" + tableId).jqGrid("getRowData");
+                                if (statue) {
+                                    selectRowArray = [];
+                                    for (var i = 0; i < allData.length; i++) {
+                                        if (params.id) {
+                                            allData[i].count = "";
+                                        }
+                                        selectRowArray.push(allData[i]);
+                                    }
+                                } else {
+                                    selectRowArray = [];
+                                }
+                                console.log("全选选中的数组:" + JSON.stringify(selectRowArray));
+                            },
+                            onSelectRow: function (rowid, status) {
+                                var rowId = jQuery("#" + tableId).jqGrid("getGridParam",
+                                    "selrow");
+                                var rowData = jQuery("#" + tableId).jqGrid('getRowData', rowid);
+                                if (params.id) {
+                                    rowData.count = "";
+                                }
+                                var orgId = rowData.id;
+                                if (status) {
+                                    var isTest = false;
+                                    if (selectRowArray.length > 0) {
+                                        for (var j = 0; j < selectRowArray.length; j++) {
+                                            if (selectRowArray[j].id == orgId) {
+                                                isTest = true;
+                                            }
+                                        }
+                                        if (!isTest) {
+                                            selectRowArray.push(rowData);
+                                        }
+                                    } else {
+                                        selectRowArray.push(rowData);
+                                    }
+                                } else {
+                                    if (selectRowArray.length > 0) {
+                                        for (var i = 0; i < selectRowArray.length; i++) {
+                                            if (selectRowArray[i].id == orgId) {
+                                                selectRowArray.splice(i, 1);
+                                            }
+                                        }
+                                    }
+                                }
+                                console.log("选中的数组:" + JSON.stringify(selectRowArray));
+                            },
+                            gridComplete: function () {
+                                var self = $("#" + tableId);
+                                $("tr", $(self)).hover(function () {
+                                    $(this).addClass('select-row-bg');
+                                }, function () {
+                                    $(this).removeClass('select-row-bg');
+                                });
+                                $("#" + tableId).closest(".ui-th-div").css({
+                                    "text-align": "center"
+                                });
+                                $("#" + tableId).closest(".ui-jqgrid-bdiv").css({
+                                    "overflow-x": "hidden"
+                                });
+                                $("#" + tableId).closest(".ui-jqgrid-bdiv").css({
+                                    'overflow-y': 'scroll',
+                                    'height': '250px'
+                                }); //ui-jqgrid-bdiv  210
+                                $("#" + tableId).closest(".frozen-bdiv").css({
+                                    'overflow-y': 'hidden',
+                                    'height': '250px'
+                                });
+                                var rowIds = jQuery("#" + tableId).jqGrid('getDataIDs');
+                                for (var i = 0; i < rowIds.length; i++) {
+                                    var tableRowId = "jqg_" + tableId + "_" + rowIds[i];
+                                    $("#" + tableId).find("input[id='jqg_" + tableId + "_" +
+                                        rowIds[i] + "']").attr(
+                                        "checked", false);
+                                }
+                            }
+                        }).trigger("reloadGrid").jqGrid('setFrozenColumns');
+                    } else {
+                        $("#" + tableId).jqGrid('clearGridData'); //清空表格
+                        $("#" + tableId).jqGrid('setGridParam', {
+                            data: rowList, //发送数据
+                            datatype: "local",
+                            styleUI: 'Bootstrap'
+                        }).trigger("reloadGrid"); //重新载入
+                    }
+                }
+            }
+        })
+    }
+
+
+    
+
+    //提交表单
+    function submitForm() {
+        if ($("input[name='name'").val() == "") {
+            tipsMsg("请填写定价名称", "FAIL");
+            return false;
+        }
+        if (types.length == 0) {
+            tipsMsg("请选择定价类型", "FAIL");
+            return false;
+        }
+        if ($("input[name='agreement_start_time'").val() == "") {
+            tipsMsg("请填写开始日期", "FAIL");
+            return false;
+        }
+        if ($("input[name='agreement_end_time'").val() == "") {
+            tipsMsg("请填写终止日期", "FAIL");
+            return false;
+        }
+
+        if ($("input[name='end_date'").val() == "") {
+            tipsMsg("请填写询价截止日期", "FAIL");
+            return false;
+        }
+        if (sellers.length == 0) {
+            tipsMsg("请选择供应商", "FAIL");
+            return false;
+        }
+
+        //保存定价单信息
+        var callback = function (result) {
+            if (result.result == "SUCCESS") {
+                window.parent.cloudOpenWindow(true);
+            } else {
+                tipsMsg(result.resultMsg, "FAIL");
+            }
+        }
+        var req = {
+            name: $("input[name='name'").val(),
+            type: types[0].id,
+            type_name: types[0].value,
+            agreement_start_time: $("input[name='agreement_start_time'").val(),
+            agreement_end_time: $("input[name='agreement_end_time'").val(),
+            end_date: $("input[name='end_date'").val(),
+            seller: sellers[0].org_name,
+            seller_id: sellers[0].org_id,
+        };
+        var selectedPro = getProduct();
+        if (selectedPro) {
+            // for (var pro of selectedPro) {
+            //     if (!pro.count) {
+            //         tipsMsg("请填写最低起购量", "FAIL");
+            //         return false;
+            //     }
+            // }
+            for(var i = 0;i<selectedPro.length;i++){
+                if(!selectedPro[i].count){
+                    tipsMsg("请填写最低起购量", "FAIL");
+                    return false;
+                }
+            }
+            req.products = JSON.stringify(selectedPro);
+        } else {
+            tipsMsg("请选择物品信息", "FAIL");
+            return false;
+        }
+
+        var url;
+        if (params.id) { //修改
+            req.id = params.id;
+            url = ctx + "/cloud/form/handler/saveSqlSave/1054250212056371200";
+        } else { //保存
+            url = ctx + "/cloud/form/handler/saveSqlSave/1054214307761360896";
+        }
+        $(".saveFormInfo").attr("disabled", "disabled");
+        setTimeout(function () {
+            $(".saveFormInfo").removeAttr("disabled");
+        }, 3500);
+
+        $.post(url, req, callback, "json");
+
+        function getProduct() {
+            var tr = $("#tbody_pro > tr");
+            if (tr.length == 0) {
+                return "";
+            }
+            var products = [];
+            for (var i = 0; i < tr.length; i++) {
+                var product = {};
+                product.pk_id = $(tr[i]).children("[name='pk_id']").val();
+                product.id = $(tr[i]).children("[name='id']").val();
+                product.number = $(tr[i]).children("[name='product_number']").text();
+                product.name = $(tr[i]).children("[name='name']").text();
+                product.classify = $(tr[i]).children("[name='classify']").text();
+                product.unit = $(tr[i]).children("[name='unit']").text();
+                product.spec = $(tr[i]).children("[name='spec']").text();
+                product.vender = $(tr[i]).children("[name='vender']").text();
+                product.count = $(tr[i]).children("[name='count']").children().val();
+                products.push(product);
+            }
+            return products;
+        }
+    }
+
+    //修改
+    var params = getUrlParams();
+    $(function () {
+        if (params.id) {
+            //定价单
+            var url = ctx + "/cloud/table/list/reader/list";
+            var callback = function (result) {
+                if (result.records > 0) {
+                    var data = result.rows[0];
+
+                    types = [{
+                        id: data.type,
+                        value: data.type_name
+                    }];
+                    sellers = [{
+                        org_id: data.seller_id,
+                        org_name: data.seller
+                    }];
+
+                    typeSelect.setValue(types);
+                    sellerSelect.setValue(sellers);
+                    $("input[name='name'").val(data.name);
+                    $("input[name='agreement_start_time'").val(data.agreement_start_time);
+                    $("input[name='agreement_end_time'").val(data.agreement_end_time);
+                    $("input[name='end_date'").val(data.end_date);
+                }
+            }
+            var req = {
+                tableId: "1054301226516090880",
+                id: params.id,
+                page: 1,
+                rows: 1
+            };
+            $.post(url, req, callback, "json");
+
+            //定价单物品
+            var callback = function (result) {
+                if (result.records > 0) {
+                    products = result.rows;
+                    // no = products.length;
+                    no = 1;
+                    addProduct();
+                }
+            }
+            var req = {
+                tableId: "1054301432158621696",
+                id: params.id,
+                page: 1,
+                rows: 100
+            };
+            $.post(url, req, callback, "json");
+        }
+    });
+</script>

@@ -1,0 +1,1279 @@
+<style>
+    .form-group-div {
+        height: 40px;
+    }
+    .formTable{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .formTable .tdTiltle{
+        width: 12%;
+        text-align: right;
+    }
+    .formTable .tdContent{
+        width: 21%;
+    }
+    .formTable td{
+        padding: 7px;
+    }
+    #description{
+        width: 100%;
+        padding: 5px;
+        outline: none;
+    }
+    .upload-attachment{
+        width:120px;
+        height:40px;
+        background:rgba(25,155,213,1);
+        border-radius:2px;
+        line-height: 40px;
+        color: #ffff;
+        cursor: pointer;
+        float: left;
+        text-align: center;
+    }
+    .glyphicon-download-alt{
+    }
+    .glyphicon-url{
+        float: left;
+        margin: 0px 10px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #ccc;
+        padding: 0px 12px;
+        text-align: center;
+    }
+    .btn-footer{
+        width:120px;
+        height:40px;
+        border-radius:2px;
+        display: inline-block;
+        border: 0px;
+        margin: 0px 10px;
+    }
+    .btn-save{
+        background:rgba(25,155,213,1);
+        color: #ffffff;
+    }
+    .btn-cancel{
+        background: #ffffff;
+        border:1px solid rgba(25,155,213,1);
+        color: rgba(29,153,212,1);
+    }
+    .glyphicon{
+        margin: 0px 5px;
+    }
+    .button-selectimg{
+        color: #ffffff;
+    }
+    .plan_visit_time{
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    input[id="avatval"]{padding:3px 6px;padding-left:10px;border:1px solid #E7EAEC;width:230px;height:25px;line-height:25px;border-left:3px solid #3FB7EB;background:#FAFAFB;border-radius:2px;}
+    input[type='file']{border:0px;display:none;}
+    .show-plan-visitor-table{
+        width: 90%;
+    }
+    .elementList{
+        height: 320px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 600px;
+        margin-left: 200px;
+        box-shadow: 3px 3px 3px #ccc;
+        border: 2px solid #ccccccbd;
+        position: relative;
+        border-bottom: 0px;
+    }
+    #tableList{
+        width: 100%;
+        height:280px;
+        border-collapse: collapse;
+        border: none;
+    }
+    .table-list-title{
+        height:40px;
+        width: 100%;
+        line-height: 40px;
+        background: #ccccccbd;
+    }
+    .table-list-title .select-title{
+        margin: 0px 10px;
+    }
+    #tableList th{
+        padding: 5px;
+        border: solid #ccc 1px;
+    }
+    #tableList td{
+        border: solid #ccc 1px;
+    }
+    #tableList thead{
+        background: #f0f1f1;
+    }
+    #tableList tr:hover{
+        width:344px;
+        background:rgba(243,158,16,.1);
+    }
+    .closeElementBtn{
+        width: 40px;
+        height: 30px;
+        position: absolute;
+        color: #ccc;
+        font-size: 16px;
+        right: 0px;
+        top:12px;
+        cursor: pointer;
+    }
+    .trStyle{
+        background:rgba(243,158,16,.3);
+    }
+    td.tdContent input.plan_visit_time:focus{
+        width: 100% !important;
+    }
+    #productListTreeDiv {
+        background-color: #fff;
+    }
+    .purchase_pop_window {
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+
+    .purchase_pop_window .purchase_pop {
+        width: 750px;
+        height: 478px;
+        margin: 0 auto;
+        top: 190px;
+        left: 0px;
+        right: 0px;
+        bottom: 240px;
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #f1f5f8;
+    }
+
+    .purchase_pop .pop_p_title {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0px 10px;
+    }
+
+    .purchase_pop .pop_p_title .p_title {
+        float: left;
+    }
+
+    .purchase_pop .pop_p_title .close_pop {
+        float: right;
+        cursor: pointer;
+    }
+
+    .purchase_pop .pop_search_i {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 10px;
+        /* display: none; */
+    }
+
+    .purchase_pop .pop_purchase_tab {
+        padding: 10px;
+        /* height: 260px; */
+        height: 300px;
+        /* overflow-y: auto; */
+    }
+
+    .purchase_pop .pop_purchase_bottom {
+        padding: 10px;
+        width: 98%;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .purchase_pop .pop_search_input {
+        float: left;
+        border-top-left-radius: 3px !important;
+        border-bottom-left-radius: 3px !important;
+    }
+
+    .purchase_pop .pop_search_btn {
+        width: 50px;
+        height: 32px;
+        background: rgba(72, 160, 220, 1);
+        color: #ffffff;
+        float: left;
+        border: 0px;
+        line-height: 32px;
+    }
+    .sureBtn {
+        font-size: 14px;
+        /* width: 80px; */
+        height: 35px;
+        color: #fff;
+        background-color: rgba(72, 160, 220, 1);
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px rgba(72, 160, 220, 1);
+        padding: 5px 20px;
+        margin: 0px 10px;
+    }
+
+    .backBtn {
+        font-size: 14px;
+        /* width: 80px; */
+        height: 35px;
+        color: #444;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px rgba(68, 68, 68, 1);
+        /* margin-right: 20px; */
+        padding: 5px 20px;
+        margin: 0px 10px;
+    }
+    #scriptListQdPage .up_page_btn {
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        text-align: center;
+        border-radius: 5px;
+        float: left;
+        margin: 0px 5px;
+    }
+
+    #scriptListQdPage .page_btn {
+        color: #337ab7;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    #scriptListQdPage .page_show {
+        font-size: 16px;
+        float: left;
+        margin: 5px 10px;
+    }
+
+    #scriptListQdPage .down_page_btn {
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        text-align: center;
+        border-radius: 5px;
+        float: left;
+        margin: 0px 5px;
+    }
+    .table-responsive {
+        overflow-x: auto;
+        /* height:260px; */
+        height: 300px;
+    }
+    .table>thead>tr>th {
+        padding: 10px 0;
+        text-align: center;
+    }
+    input[type=checkbox]{
+        margin: 3px 12px 0;
+    }
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+    #tbody_pro td{
+        text-align: center;
+    }
+
+    .layui-layer-tips .layui-layer-content{
+        background: #fff;
+    }
+    div#selectGoodsListDiv {
+        padding: 30px 10%;
+    }
+    .selected-table-title{
+        height:30px;
+        line-height: 30px;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+</style>
+<script type="text/javascript" src="${ctx}/assets/js/layer/layer.js"></script>
+<!-- zTree样式 -->
+<link rel="stylesheet" href="${ctx}/assets/css/zTreeStyle/zTreeStyle.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/assets/css/tree/tree.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/assets/css/tree/icon.css"/>
+<link rel="stylesheet" href="${ctx}/assetsv1/css/prolayer.css">
+<!-- ztree -->
+<script type="text/javascript" src="${ctx}/assets/js/ztree/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="${ctx}/assets/js/ztree/jquery.ztree.excheck-3.5.js"></script>
+<script src="${ctx}/lib/zTree/js/jquery.ztree.all.min.js" type="text/javascript" charset="utf-8"></script>
+<div>
+    <div class="modal-body"
+        style="overflow-y: auto; overflow-x: hidden; position: absolute; left: 0px; right: 0px; bottom: 120px; top: 10px;">
+        <form id="field_content" method="post" class="form-horizontal bv-form" data-bv-message="This value is not valid"
+            data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+            data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+            data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" novalidate="novalidate">
+            <table class="formTable">
+                <tbody>
+                    <tr>
+                        <td class="tdTiltle">商品名称:</td>
+                        <td class="tdContent">
+                        <input type="text" id="goods_name" class="form-control" >
+                        <input type="hidden" id="id">
+                        </td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">适用医院性质:</td>
+                        <td class="tdContent">
+                        <input type="text" id="hospital_nature" name="hospital_nature" class="form-control" >
+                        </td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">商品类型:</td>
+                        <td class="tdContent">
+                            <input type="radio"  name="goods_type" value="1" checked="checked">单品</input>
+                            <input type="radio"  name="goods_type" value="2">组合套餐</input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">选择产品:</td>
+                        <td class="tdContent" id="product_switch">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">标准价格:</td>
+                        <td class="tdContent"><input type="number" class="form-control" id="price" min="0"></td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">销售单位:</td>
+                        <td class="tdContent"><input type="text" class="form-control" id="unit" ></td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">有效期:</td>
+                        <td class="tdContent" style="position:relative;">
+                            <input type="text" id="validity_start_time" name="validity_start_time" class="form-control" >
+                            <span style="position: absolute;
+                            top: 13px;
+                            right: -6px;">~</span>
+                        </td>
+                        <td class="tdContent">
+                            <input type="text" id="validity_end_time" name="validity_end_time" class="form-control" >
+                        </td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                        <td class="tdTiltle"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle" style="vertical-align: sub;">商品描述:</td>
+                        <td class="tdContent" colspan="3">
+                            <textarea id="description" rows="10"></textarea>
+                        </td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">启用状态:</td>
+                        <td class="tdContent">
+                            <input type="radio"  name="status" value="1" checked="checked">启用</input>
+                            <input type="radio"  name="status" value="0">禁用</input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdTiltle">所属大类:</td>
+                        <td class="tdContent" ><input type="text" class="form-control" id="category" readonly><input type="hidden" class="form-control" id="category_id"></td>
+                        <td class="tdTiltle"></td>
+                        <td class="tdContent"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="selectGoodsListDiv" class="row" type="row" style="display: none;">
+                <div class="selected-table-title">已选商品:</div>
+                <div class="table-responsive" style="height:340px;">
+                    <table class="table table-bordered tablePro">
+                        <thead>
+                        <th class="seq">序号</th>
+                        <th class="no">商品编号</th>
+                        <th class="name">商品名称</th>
+                        <th class="product_name">产品名称</th>
+                        <th class="price">标准价格</th>
+                        <th class="combo_type">商品选项类型</th>
+                        <th class="quantity">数量</th>
+                        <th class="">操作</th>
+                        </thead>
+                        <tbody id="tbody_pro">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer" style="position: absolute; bottom: 45px; right: 10px; width: 100%;text-align: center;">
+        <button type="button" id="open_form_btn_submit" class="btn-footer btn-save" onclick="javascript:submitForm();">
+            <span class="glyphicon glyphicon-floppy-disk"></span>保存
+        </button>
+        <button type="button" class="btn-footer btn-cancel" data-dismiss="modal"
+            onclick="javascript:window.parent.cloudOpenWindow(false);">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消
+        </button>
+    </div>
+</div>
+<div id="purchase_pop_window" class="purchase_pop_window" style="display: none;">
+    <div class="purchase_pop">
+        <div class="pop_p_title">
+            <span clas="p_title">选择物品信息</span>
+            <span class="close_pop">X</span>
+        </div>
+        <div class="pop_search_i">
+            <div class="input-wrap">
+                <input class="input search_val" type="text" id="searchName" value="" placeholder="搜索物品信息">
+                <span class="search-input" onclick="searchInputClick(this)" title="点击搜索"></span>
+            </div>
+        </div>
+        <div class="pop_purchase_tab">
+            <table id="p_goods_table"></table>
+
+            <div id="scriptListQdPage" class="scriptListQdPage"
+                 style="height: 35px !important;float: right;margin-right: 10px;">
+                <span class="up_page_btn page_btn">上一页</span><span class="page_show">1/1</span><span
+                    class="down_page_btn page_btn">下一页</span>
+            </div>
+        </div>
+        <div class="pop_purchase_bottom">
+            <button class="pop_cancel backBtn">取消</button>
+            <button class="pop_ok sureBtn">确定</button>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    var currentPage = 1; //当前页数
+    var totalPage = 1; //总的页数
+    var totalRecords = 1; //总的条数
+    var isSelectPage = 0; //是否选中了上一页下一页
+    var tableId="p_goods_table";
+    var keywordStr = ""; //搜素的名称
+    var searchArray = ['name', 'no', 'product_name'];
+    var selectRowArray = [];
+    var allArrayList = [];
+    //存放商品选择类型
+    var typeMap = new Map();
+    //存放商品套餐产品数量
+    var quantityMap = new Map();
+    var param=getUrlParams();
+    $(function () {
+        laydate.render({
+            elem: '#validity_start_time',
+            type: "date",
+            trigger: 'click',
+            format: "yyyy-MM-dd"
+        });
+        laydate.render({
+            elem: '#validity_end_time',
+            type: "date",
+            trigger: 'click',
+            format: "yyyy-MM-dd"
+        });
+        if(param.id){
+            initForm(param);
+        }else{
+            $("#hospital_nature").magicSuggest({
+                data: ctx + "/cloud/table/list/reader/wordbook/1127844046560038912",
+                allowFreeEntries: false,
+                autoSelect: true,
+                valueField: "value",
+                maxSelection: 1, //设置选择个数
+                placeholder: "请选择",
+                displayField: "value", //定义显示的字段
+                getParams: function () {
+                    return { rows: 1000}
+                },
+                maxSelectionRenderer: function () {
+                    return "";
+                },
+                selectionRenderer: function (data) {
+                    $("#hospital_nature").val(data.value);
+                    return data.value;
+                },
+                renderer: function (data) {
+                    return data.value;
+                }
+            });
+        }
+        $("#category").parent().parent().hide();
+        var goods_type=$("input[name='goods_type']:checked").val();
+        productInputSwitch(goods_type);
+        $("input[name='goods_type']").click(function(){
+            var goods_type=$(this).val();
+            productInputSwitch(goods_type);
+        });
+
+        $("#category").click(function(){
+            var html='<div class="tree-box" id="productListTreeDiv">\n' +
+                '        <ul id="productListTree" class="ztree"></ul>\n' +
+                '    </div>'
+            var index=layer.open({
+                skin: '#productListTreeDiv',
+                type: 4,
+                shadeClose:true,
+                content: [html, '#category'] //数组第二项即吸附元素选择器或者DOM
+            });
+            productListTree(1);
+        });
+    })
+    function productInputSwitch(goods_type) {
+        var html="";
+        if (parseInt(goods_type) == 1) {
+            html = "<input type=\"text\" class=\"form-control\" id=\"product_name\" readonly onclick=\"javascript:select_single_product(this);\">\n" +
+                " <input type=\"hidden\" class=\"form-control\" id=\"product_id\">";
+            $("#category").parent().parent().show();
+        } else {
+            html = "<a id=\"selectGoods\"  onclick=\"javascript:searchInputClick(this);\">\n" +
+                "  选择商品\n" +
+                " </a>";
+            $("#category").parent().parent().hide();
+        }
+        $("#product_switch").empty();
+        $("#product_switch").append(html);
+        if(param.product_name){
+            $("#product_name").val(decodeURI(param.product_name));
+            $("#product_id").val(decodeURI(param.product_id));
+        }
+    }
+    $(".close_pop").on("click", function () {
+        selectRowArray = []
+        $(".purchase_pop_window").hide();
+        console.log('selectRowArray:' + JSON.stringify(selectRowArray));
+    });
+    $(".pop_cancel").on("click", function () {
+        selectRowArray = []
+        $(".purchase_pop_window").hide();
+        console.log('selectRowArray:' + JSON.stringify(selectRowArray));
+    });
+    function select_single_product(){
+        var goods_type=$("input[name='goods_type']:checked").val();
+        if(parseInt(goods_type)==1){
+            var html='<div class="tree-box" id="productListTreeDiv">\n' +
+                '        <ul id="productListTree" class="ztree"></ul>\n' +
+                '    </div>'
+            var index=layer.open({
+                skin: '#productListTreeDiv',
+                type: 4,
+                shadeClose:true,
+                content: [html, '#product_name'] //数组第二项即吸附元素选择器或者DOM
+            });
+            productListTree();
+        }
+    }
+    $("input[name='goods_type']").on("click",function(){
+        if($(this).val()=='1'){
+            quantityMap = new Map();
+            $("#selectGoodsListDiv").hide();
+            $("#tbody_pro").empty();
+        }
+    })
+    //搜索
+    function searchInputClick(_this) {
+        var nameVal = $("#searchName").val();
+        var idsStr = "";
+        keywordStr = nameVal;
+        popTable(currentPage, keywordStr, searchArray); //
+    }
+    //点击确定
+    $(".pop_ok").on("click", function () {
+        console.log('length:' + selectRowArray.length);
+        if (selectRowArray.length == 0) {
+            $(".purchase_pop_window").hide();
+            $("#selectGoodsListDiv").hide();
+            return
+        }
+        //    allArrayList = [];
+        if (selectRowArray.length > 0) {
+            $(".purchase_pop_window").hide();
+            $("#selectGoodsListDiv").show();
+
+            // allArrayList = allArrayList.concat(selectRowArray);
+            let selectRowArrays = selectRowArray
+            console.log('选择产品' + JSON.stringify(selectRowArrays));
+            selectRowArray = [];
+            no = $("#tbody_pro").children("tr:last-child").attr("index")+1;
+            if(!no){
+                no=0;
+            }
+            $("#tbody_pro").empty();
+            for (var i = 0; i < selectRowArrays.length; i++) {
+                var product = selectRowArrays[i];
+                var goods_id = selectRowArrays[i]['id'] ? selectRowArrays[i]['id'] : "";
+                var goods_no = selectRowArrays[i]['no'] ? selectRowArrays[i]['no'] : "";
+                var goods_name = selectRowArrays[i]['name'] ? selectRowArrays[i]['name'] : "";
+                var product_name = selectRowArrays[i]['product_name'] ? selectRowArrays[i]['product_name'] : ""
+                var price = selectRowArrays[i]['price'] ? selectRowArrays[i]['price'] : "";
+                var quantity = selectRowArrays[i]['quantity'] ? selectRowArrays[i]['quantity'] : "";
+                var combo_goods_type=selectRowArrays[i]['combo_goods_type'] ? selectRowArrays[i]['combo_goods_type'] : "";
+                var timestamp=new Date().getTime();
+                $("#tbody_pro").append("<tr index='" + no + "' class>" +
+                    "<input name='goods_id' type='hidden' value='" +goods_id +
+                    "'/><input name='goods_no' type='hidden' value='" + product['no'] +
+                    "'/><input name='goods_name' type='hidden' value='" + product['name'] +
+                    "'/><input name='product_name' type='hidden' value='" + product['product_name'] +
+                    "'/><input name='price' type='hidden' value='" + product['price'] +
+                    "'/><td name='seq'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (i+1) +
+                    "</div></td>"+
+                    "<td name='goods_no'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                        goods_no + "</div></td>" +
+                    "<td name='goods_name'><div title='"+goods_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                        goods_name + "</div></td>" +
+                    "<td name='product_name'><div title='"+product_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                        product_name + "</div></td>" +
+                    "<td name='price'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                    price + "</div></td>" +
+                    "<td name='combo_goods_type'>"+combo_goods_type+"</td>"+
+                    "<td name='quantity'>"+quantity+"</td>" +
+                    "<td><a href='#' orderId='" + product['id'] + "' onclick='removePro(this);'><span class='glyphicon glyphicon-remove'></span></a></td></tr>"
+                );
+                no++;
+            }
+            $("#tbody_pro").find("input[name='goods_id']").each(function(){
+                var goods_id=$(this).val();
+                var type=typeMap.get(goods_id)
+                var quantity=quantityMap.get(goods_id);
+                if(type){
+                    $(this).parent().find("option[value="+type+"]").attr("selected","selected");
+                }
+                if(quantity){
+                    $(this).parent().find("input[name='quantity']").val(quantity);
+                }
+            });
+        }
+        setbgColor("tablePro");
+        $(".tablePro tbody tr").click(function () {
+            $(".tablePro tbody tr").css({
+                "background-color": "#ffffff"
+            });
+            $(this).css({
+                "background-color": "rgba(130,130,130,0.1)"
+            });
+        });
+        console.log("查看确定之后的数据：" + JSON.stringify(allArrayList));
+    })
+    //删除物品
+    function removePro(this_) {
+        // var arr = [];
+        // var orderId = $(this_).attr("orderId");
+        // if (allArrayList.length > 0) {
+        //     for (var i = 0; i < allArrayList.length; i++) {
+        //         if (allArrayList[i].id == orderId) {
+        //             // allArrayList.splice(i, 1);
+        //             arr.push(i)
+        //         }
+        //     }
+        $(this_).parent().parent().remove();
+        // no--;
+        // resetNo();
+        // setApplyTypeSelectEnable();
+        // }
+        // var max = Math.max.apply(null, arr);
+        // allArrayList.splice(max, 1);
+        // console.log("查看删除之后的数据：" + JSON.stringify(allArrayList));
+    }
+
+    //重设序号
+    // function resetNo() {
+    //     var th = $("#tbody_pro > tr > th");
+    //     var j = 1;
+    //     for (var i = 0; i < th.length; i++) {
+    //         th[i].innerText = j++;
+    //     }
+    // }
+    //设置分页按钮
+    function pageSettingBtn(current, totalPage) {
+        if (current <= 1) {
+            $(".up_page_btn").addClass("disable_btn").removeClass("page_btn");
+        } else {
+            $(".up_page_btn").addClass("page_btn").removeClass("disable_btn");
+        }
+        if (totalPage <= 1 || current == totalPage) {
+            $(".down_page_btn").addClass("disable_btn").removeClass("page_btn");
+        } else {
+            $(".down_page_btn").addClass("page_btn").removeClass("disable_btn");
+        }
+    }
+    //点击上一页
+    $(".scriptListQdPage").on("click", ".up_page_btn", function () {
+        if (currentPage <= 1) {
+            //判断页数 置灰按钮
+            pageSettingBtn(currentPage, totalPage);
+            return;
+        }
+        currentPage--;
+        isSelectPage++;
+        $(".scriptListQdPage .page_show").html(currentPage + "/" + totalPage);
+        popTable(currentPage, keywordStr, searchArray);
+    });
+
+    //点击下一页
+    $(".scriptListQdPage").on("click", ".down_page_btn", function () {
+        console.log(66666);
+
+        if (currentPage >= totalPage) {
+            //判断页数 置灰按钮
+            pageSettingBtn(currentPage);
+            return;
+        }
+        currentPage++;
+        isSelectPage++;
+        $(".scriptListQdPage .page_show").html(currentPage + "/" + totalPage);
+        console.log(777777777777);
+
+        popTable(currentPage, keywordStr, searchArray);
+    });
+    function popTable(myCurrentPage, nameStr, searchArrStr) {
+        $(".purchase_pop_window").show();
+
+        var idsStr = "";
+        var mesg = ctx + "/cloud/table/list/reader/list"; ///cloud/table/list/reader/list
+
+        console.log('selectRowArray:' + JSON.stringify(selectRowArray));
+        console.log('allArrayList:' + JSON.stringify(allArrayList));
+
+        if (allArrayList.length > 0) {
+            var allIdStr = "";
+            for (var i = 0; i < allArrayList.length; i++) {
+                var ids = allArrayList[i].id;
+                allIdStr += ids + ",";
+            }
+            idsStr = allIdStr.substring(0, allIdStr.length - 1);
+        }
+
+        var data = {
+            tableId: "1149237220373172224",
+            rows: 20,
+            keyword: nameStr,
+            page: myCurrentPage,
+            fieldKeys: JSON.stringify(searchArrStr).toString()
+        };
+
+        $.ajax({
+            url: mesg,
+            type: "post",
+            data: data,
+            success: function (json) {
+                console.log('搜索：' + JSON.stringify(json));
+
+                if (json == "" || json == null) {
+                    return;
+                }
+                if (json) {
+                    currentPage = json.page;
+                    totalPage = json.total;
+                    totalRecords = json.records;
+                    if (!currentPage || currentPage <= 0) {
+                        currentPage = 1;
+                    }
+                    if (!totalPage || totalPage <= 0) {
+                        totalPage = 1;
+                    }
+                    $(".scriptListQdPage .page_show").text(currentPage + "/" + totalPage);
+                    pageSettingBtn(currentPage, totalPage);
+
+                    var rowList = json.rows;
+
+                    if (parseInt(isSelectPage) == 0) {
+                        isSelectPage++;
+                        purchaseTable = $("#" + tableId).jqGrid({
+                            data: rowList,
+                            datatype: "local",
+                            styleUI: 'Bootstrap',
+                            colNames: ['id','商品编号', '商品名称', '产品名称', '标准价格', '商品选项类型', '数量'],
+                            colModel: [{
+                                    name: 'id',
+                                    index: 'id',
+                                    hidden:true
+                                },{
+                                    name: 'no',
+                                    index: 'no',
+                                    width: 100
+                                },
+                                {
+                                    name: 'name',
+                                    index: 'name',
+                                    width: 100
+                                },
+                                {
+                                    name: 'product_name',
+                                    index: 'product_name',
+                                    width: 100
+                                },
+                                {
+                                    name: 'price',
+                                    index: 'price',
+                                    width: 110
+                                },
+                                {
+                                    name: 'combo_goods_type',
+                                    index: '',
+                                    width: 180,
+                                    formatter: function (v, n, x) {
+                                        var tdDiv ='<select value="" onchange="getType(this,\''+x.id+'\')" style="width:145px;height: 27px" name="combo_goods_type">\n' +
+                                            '                            <option value="">请选择商品类型</option>\n' +
+                                            '                            <option value="组件">组件</option>\n' +
+                                            '                            <option value="相关产品">相关产品</option>\n' +
+                                            '                        </select>';
+                                        return tdDiv;
+
+                                    }
+                                },{
+                                    name:'quantity',
+                                    index:'',
+                                    width: 80,
+                                    formatter: function (v, n, x) {
+                                        var tdDiv ='<input value="" min="0" type="number" onchange="getQuantity(this,\''+x.id+'\')" style="width:80px" name="quantity"/>';
+                                        return tdDiv;
+                                    }
+                                }
+                            ],
+                            height: "auto",
+                            viewrecords: true, //定义是否要显示总记录数
+                            rowNum: 20,
+                            loadonce: false,
+                            pgbuttons: true,
+                            pginput: true,
+                            scroll: false,
+                            forceFit: true,
+                            shrinkToFit: false,
+                            autowidth: true,
+                            viewrecords: true,
+                            sortorder: "desc",
+                            multiselect: true,
+                            onSelectAll: function (rowids, statue) { //点击头部 选中所有
+                                console.log(rowids);
+                                console.log(556677);
+
+                                console.log(statue);
+
+                                var allData = $("#" + tableId).jqGrid("getRowData");
+                                if (statue) {
+                                    selectRowArray = [];
+                                    for (var i = 0; i < allData.length; i++) {
+                                        selectRowArray.push(allData[i]);
+                                    }
+                                } else {
+                                    selectRowArray = [];
+                                }
+                                console.log("选中的数组:" + JSON.stringify(selectRowArray));
+                            },
+                            onSelectRow: function (rowid, status) {
+                                var rowId = jQuery("#" + tableId).jqGrid("getGridParam",
+                                    "selrow");
+                                var rowData = jQuery("#" + tableId).jqGrid('getRowData', rowid);
+                                var orgId = rowData.id;
+                                if (status) {
+                                    var isTest = false;
+                                    if (selectRowArray.length > 0) {
+                                        for (var j = 0; j < selectRowArray.length; j++) {
+                                            if (selectRowArray[j].id == orgId) {
+                                                isTest = true;
+                                            }
+                                        }
+                                        if (!isTest) {
+                                            selectRowArray.push(rowData);
+                                        }
+                                    } else {
+                                        selectRowArray.push(rowData);
+                                    }
+                                } else {
+                                    if (selectRowArray.length > 0) {
+                                        for (var i = 0; i < selectRowArray.length; i++) {
+                                            if (selectRowArray[i].id == orgId) {
+                                                selectRowArray.splice(i, 1);
+                                            }
+                                        }
+                                    }
+                                }
+                                // console.log("之前的数据："+JSON.stringify(allArrayList));
+                                // console.log("选中的数组:" + JSON.stringify(selectRowArray));
+                            },
+                            gridComplete: function () {
+                                var self = $("#" + tableId);
+                                $("tr", $(self)).hover(function () {
+                                    $(this).addClass('select-row-bg');
+                                }, function () {
+                                    $(this).removeClass('select-row-bg');
+                                });
+                                $("#" + tableId).closest(".ui-th-div").css({
+                                    "text-align": "center"
+                                });
+                                $("#" + tableId).closest(".ui-jqgrid-bdiv").css({
+                                    "overflow-x": "hidden"
+                                });
+                                $("#" + tableId).closest(".ui-jqgrid-bdiv").css({
+                                    'overflow-y': 'scroll',
+                                    'height': '250px'
+                                }); //ui-jqgrid-bdiv    210
+                                $("#" + tableId).closest(".frozen-bdiv").css({
+                                    'overflow-y': 'hidden',
+                                    'height': '250px'
+                                });
+                                var rowIds = jQuery("#" + tableId).jqGrid('getDataIDs');
+                                for (var i = 0; i < rowIds.length; i++) {
+                                    var tableRowId = "jqg_" + tableId + "_" + rowIds[i];
+                                    $("#" + tableId).find("input[id='jqg_" + tableId + "_" +
+                                        rowIds[i] + "']").attr(
+                                        "checked", false);
+                                }
+                            }
+                        }).trigger("reloadGrid").jqGrid('setFrozenColumns');
+                    } else {
+                        $("#" + tableId).jqGrid('clearGridData'); //清空表格
+                        $("#" + tableId).jqGrid('setGridParam', {
+                            data: rowList, //发送数据
+                            datatype: "local",
+                            styleUI: 'Bootstrap'
+                        }).trigger("reloadGrid"); //重新载入
+                    }
+
+                }
+            }
+        });
+
+    }
+    function getType(_this,id) {
+        var type=$(_this).val();
+        $(_this).find("option[value=type]").attr("selected","selected");
+        typeMap.set(id,type);
+        console.log(id+":"+type);
+        console.log(typeMap);
+    }
+    function getQuantity(_this,id) {
+        var quantity=$(_this).val();
+        console.log(id+":"+quantity);
+        quantityMap.set(id,quantity);
+        console.log(quantityMap);
+    }
+    //获取产品树
+    function productListTree(type){
+        var data={
+            rows:1000
+        }
+        if(type){
+            data.query=type
+        }
+        var setting = {
+            async: {
+                enable: true,
+                // url:ctx+"/cloud/table/list/reader/list",
+                url:ctx+"/cloud/table/list/reader/wordbook/1148843159669706752",
+                dataType:"json",
+                // otherParam:{tableId:"1148770281121124352",page:1,rows:10000},
+                otherParam:data,
+                type:"post"
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pid",
+                    rootPId: ""
+                }
+            },check : {
+                enable : false
+            },callback: {
+                onClick: function(treeId, treeNode) {
+                    var treeObj = $.fn.zTree.getZTreeObj(treeNode);
+                    var selectedNode = treeObj.getSelectedNodes()[0];
+                    if(type){
+                        $("#category_id").val(selectedNode.id);
+                        $("#category").val(selectedNode.name);
+                    }else{
+                        $("#product_id").val(selectedNode.id);
+                        $("#product_name").val(selectedNode.name);
+                    }
+                    layer.closeAll();
+                }
+            }
+
+        };
+        var zTree=$.fn.zTree.init($("#productListTree"),setting);
+    }
+    var sub_flag=0;
+    function submitForm() {
+        if(sub_flag==1){
+            layer.alert("不要再点了，请刷新后重试！");
+            setTimeout(function () {
+                layer.closeAll();
+            }, 1000);
+            return;
+        }
+        sub_flag=1;
+        var sysparam = getSysParams();
+        var data = {
+            id: $("#id").val(),
+            name: $("#goods_name").val(),
+            price: $("#price").val(),
+            unit: $("#unit").val(),
+            description: $("#description").val(),
+            status: $("input[name='status']:checked").val(),
+            type: $("input[name='goods_type']:checked").val(),
+            validity_start_time: $("#validity_start_time").val(),
+            validity_end_time: $("#validity_end_time").val(),
+            product_name: $("#product_name").val(),
+            product_id: $("#product_id").val(),
+            hospital_nature:$("input[name='hospital_nature[]']").val()
+        };
+        if(!data.name ||data.name==''){
+            layer.alert("请填写商品名称！");
+            sub_flag=0;
+            return;
+        }
+        if(!data.hospital_nature ||data.hospital_nature==''){
+            layer.alert("请选择适用医院性质！");
+            sub_flag=0;
+            return;
+        }
+        if(data.type=='1') {
+            if (!data.product_name || data.product_name == '') {
+                layer.alert("请选择产品！");
+                sub_flag = 0;
+                return;
+            }
+        }
+        if(!data.price||data.price==''){
+            layer.alert("请填写价格！");
+            sub_flag=0;
+            return;
+        }
+        if(!data.unit ||data.unit==''){
+            layer.alert("请填写销售单位！");
+            sub_flag=0;
+            return;
+        }
+        if(!data.validity_start_time || !data.validity_end_time ||data.validity_start_time==''|| data.validity_end_time==''){
+            layer.alert("请填写商品有效期！");
+            sub_flag=0;
+            return
+        }
+        if(data.validity_start_time>data.validity_end_time){
+            layer.alert("开始时间必须小于截止时间");
+            sub_flag=0;
+            return
+        }
+        if(data.type=='1'){
+            data.category=$("#category").val();
+            data.category_id =$("#category_id").val();
+            if(!data.category ||data.category==''){
+                layer.alert("请选择产品所属大类！");
+                sub_flag=0;
+                return;
+            }
+        }else{
+            var goodsList=[];
+            debugger;
+            $("#tbody_pro").find("tr").each(function(){
+                var goods_id=$(this).find("input[name=goods_id]").val();
+                var type=typeMap.get(goods_id);
+                var quantity=quantityMap.get(goods_id);
+                var goods={
+                    goods_id:goods_id,
+                    goods_name:$(this).find("input[name=goods_name]").val(),
+                    quantity:quantity,
+                    combo_goods_type:type
+                };
+                goodsList.push(goods);
+            });
+            data.goodsList=JSON.stringify(goodsList);
+            console.log(data);
+        }
+        var loadMsg = layer.msg("正在加载...", {
+            icon: 16,
+            shade: [0.1, '#393D49'],
+            time: 60000
+        });
+        $.post(ctx + "/cloud/form/handler/saveSqlSave/1149255325350629376", data, function (json) {
+            layer.close(loadMsg);
+            if (json.result == "SUCCESS") {
+                try{
+                    parent.layer.alert("保存成功");
+                    setTimeout(function () {
+                        parent.layer.closeAll();
+                    }, 1000);
+                    if(param.flag==2){
+                        window.parent.parent.cloudOpenWindow(true);
+                    }else{
+                        window.parent.cloudOpenWindow(true);
+                    }
+
+                }catch(Exception){
+                }
+            } else {
+                layer.alert(json.resultMsg);
+                sub_flag=0;
+            }
+        });
+    }
+
+
+    function initForm(param) {
+        console.log(param);
+        $("#id").val(param.id);
+        $("#goods_name").val(param.name?decodeURI(param.name):'');
+        $("#price").val(param.price);
+        $("#unit").val(param.unit?decodeURI(param.unit):'');
+        $("#description").val(param.description?decodeURI(param.description):'');
+        $("input[name='status']").each(function(){
+            if(param.status==$(this).val()){
+                console.log("param.status:"+param.status);
+                $(this).attr("checked","checked")
+            }else{
+                console.log("this:"+$(this).val());
+            }
+        });
+        $("input[name='goods_type']").each(function(){
+            if(param.type==$(this).val()){
+                console.log("param.goods_type:"+param.type);
+                $(this).attr("checked","checked")
+            }else{
+                console.log("this:"+$(this).val());
+            }
+        });
+        $("#validity_start_time").val(param.validity_start_time);
+        $("#validity_end_time").val(param.validity_end_time);
+        $("#product_name").val(param.product_name?decodeURI(param.product_name):'');
+        $("#product_id").val(param.product_id);
+        $("#category").val(param.category?decodeURI(param.category):'');
+        $("#category_id").val(param.category_id);
+        $("#hospital_nature").magicSuggest({
+            data: ctx + "/cloud/table/list/reader/wordbook/1127844046560038912",
+            allowFreeEntries: false,
+            autoSelect: true,
+            value: param.hospital_nature ? [decodeURI(param.hospital_nature)] : [],
+            valueField: "value",
+            maxSelection: 1, //设置选择个数
+            placeholder: "请选择",
+            displayField: "value", //定义显示的字段
+            getParams: function () {
+                return { rows: 1000}
+            },
+            maxSelectionRenderer: function () {
+                return "";
+            },
+            selectionRenderer: function (data) {
+                $("#hospital_nature").val(data.value);
+                return data.value;
+            },
+            renderer: function (data) {
+                return data.value;
+            }
+        });
+        if(param && param.type=='2'){
+            $.post(ctx+'/cloud/table/list/reader/list',{tableId:'1150968131171127296',parent_id:param.id,rows:2000,page:1},function(result){
+                console.log("商品套餐查询：");
+                if (!result) {
+                    return
+                }
+                var selectRowArray=result.rows;
+                console.log(selectRowArray);
+                if (selectRowArray.length > 0) {
+                    $(".purchase_pop_window").hide();
+                    $("#selectGoodsListDiv").show();
+
+                    // allArrayList = allArrayList.concat(selectRowArray);
+                    let selectRowArrays = selectRowArray
+                    console.log('选择产品' + JSON.stringify(selectRowArrays));
+                    no = $("#tbody_pro").children("tr:last-child").attr("index")+1;
+                    if(!no){
+                        no=0;
+                    }
+                    $("#tbody_pro").empty();
+                    for (var i = 0; i < selectRowArrays.length; i++) {
+                        var product = selectRowArrays[i];
+                        var goods_id = selectRowArrays[i]['goods_id'] ? selectRowArrays[i]['goods_id'] : "";
+                        var goods_no = selectRowArrays[i]['no'] ? selectRowArrays[i]['no'] : "";
+                        var goods_name = selectRowArrays[i]['goods_name'] ? selectRowArrays[i]['goods_name'] : "";
+                        var product_name = selectRowArrays[i]['product_name'] ? selectRowArrays[i]['product_name'] : ""
+                        var price = selectRowArrays[i]['price'] ? selectRowArrays[i]['price'] : "";
+                        var quantity =selectRowArrays[i]['quantity'] ? selectRowArrays[i]['quantity'] : "";
+                        var combo_goods_type =selectRowArrays[i]['goods_type'] ? selectRowArrays[i]['goods_type'] : "";
+                        quantityMap.set(goods_id,quantity);
+                        typeMap.set(goods_id,combo_goods_type);
+                        var quantityDiv ='<input value="" min="0" type="number" onchange="getQuantity(this,\''+goods_id+'\')" style="width:80px" name="quantity"/>';
+                        var combo_goods_typeDiv ='<select value="" onchange="getType(this,\''+goods_id+'\')" style="width:145px;height: 27px" name="combo_goods_type">\n' +
+                            '                            <option value="">请选择商品类型</option>\n' +
+                            '                            <option value="组件">组件</option>\n' +
+                            '                            <option value="相关产品">相关产品</option>\n' +
+                            '                        </select>';
+
+                        var timestamp=new Date().getTime();
+                        $("#tbody_pro").append("<tr index='" + no + "' class>" +
+                            "<input name='goods_id' type='hidden' value='" +goods_id +
+                            "'/><input name='goods_no' type='hidden' value='" + product['no'] +
+                            "'/><input name='goods_name' type='hidden' value='" + product['goods_name'] +
+                            "'/><input name='product_name' type='hidden' value='" + product['product_name'] +
+                            "'/><input name='price' type='hidden' value='" + product['price'] +
+                            "'/><td name='seq'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (i+1) +
+                            "</div></td>"+
+                            "<td name='goods_no'><div style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                            goods_no + "</div></td>" +
+                            "<td name='goods_name'><div title='"+goods_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                            goods_name + "</div></td>" +
+                            "<td name='product_name'><div title='"+product_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                            product_name + "</div></td>" +
+                            "<td name='price'><div title='"+product_name+"' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width: 100px'>" +
+                            price + "</div></td>" +
+                            "<td name='combo_goods_type'>"+combo_goods_typeDiv+"</td>"+
+                            "<td name='quantity'>"+quantityDiv+"</td>" +
+                            "<td><a href='#' orderId='" + product['id'] + "' onclick='removePro(this);'><span class='glyphicon glyphicon-remove'></span></a></td></tr>"
+                        );
+                        no++;
+
+                    }
+                    $("#tbody_pro").find("input[name='goods_id']").each(function(){
+                        var goods_id=$(this).val();
+                        var type=typeMap.get(goods_id);
+                        var quantity=quantityMap.get(goods_id);
+                        if(type){
+                            $(this).parent().find("option[value="+type+"]").attr("selected","selected");
+                        }
+                        if(quantity){
+                            $(this).parent().find("input[name='quantity']").val(quantity);
+                        }
+                    });
+                }
+                setbgColor("tablePro");
+                $(".tablePro tbody tr").click(function () {
+                    $(".tablePro tbody tr").css({
+                        "background-color": "#ffffff"
+                    });
+                    $(this).css({
+                        "background-color": "rgba(130,130,130,0.1)"
+                    });
+                });
+                console.log("查看确定之后的数据：" + JSON.stringify(allArrayList));
+            });
+        }
+    }
+</script>
